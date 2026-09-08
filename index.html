@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sonu Ansari | Senior Data Engineer & Software Engineer — Goa, India</title>
+<title>Sonu Ansari | Senior Data Engineer & Software Engineer, Goa, India</title>
 <meta name="description" content="Sonu Ansari is a Senior Data Engineer & Software Engineer with 4+ years building production ETL pipelines, real-time IoT systems, and AI assistants. AWS & Databricks certified. Based in Goa, India.">
 <meta name="keywords" content="Sonu Ansari, Data Engineer, Software Engineer, PySpark, AWS, Databricks, ETL Pipelines, IoT, Kafka, Goa, India, Senior Data Engineer, Cloud Engineer, Real-time Streaming, AI Assistant, Termux, Ubuntu Android">
 <meta name="author" content="Sonu Ansari">
@@ -13,13 +13,22 @@
 <meta property="og:url" content="https://sonuansari.dev">
 <meta property="og:title" content="Sonu Ansari | Senior Data Engineer & Software Engineer">
 <meta property="og:description" content="Senior Data Engineer with 4+ years building production ETL pipelines, real-time IoT systems, and AI assistants. AWS & Databricks certified.">
-<meta property="og:image" content="https://sonuansari.dev/og-image.jpg">
+<meta property="og:image" content="https://sonuansari.dev/sonu-logo.png">
 <meta property="og:site_name" content="Sonu Ansari Portfolio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://sonuansari.dev">
 <meta name="twitter:title" content="Sonu Ansari | Senior Data Engineer & Software Engineer">
 <meta name="twitter:description" content="Senior Data Engineer with 4+ years building production ETL pipelines, real-time IoT systems, and AI assistants.">
-<meta name="twitter:image" content="https://sonuansari.dev/og-image.jpg">
+<meta name="twitter:image" content="https://sonuansari.dev/sonu-logo.png">
+<script>
+(function(){
+  try {
+    var t=localStorage.getItem('sonu-theme');
+    if(!t) t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+  } catch(e) {}
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,7 +39,7 @@
   "name": "Sonu Ansari",
   "jobTitle": "Senior Data Engineer & Software Engineer",
   "url": "https://sonuansari.dev",
-  "image": "https://sonuansari.dev/profile.jpg",
+  "image": "https://sonuansari.dev/sonu-logo.png",
   "email": "sonuansari@duck.com",
   "telephone": "+917219260661",
   "address": { "@type": "PostalAddress", "addressLocality": "Goa", "addressCountry": "India" },
@@ -67,6 +76,37 @@
   --warning: #f59e0b;
 }
 
+
+html[data-theme="light"] {
+  --bg: #f5f7fb;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --text: #101828;
+  --text-muted: #475467;
+  --text-dim: #667085;
+  --accent: #008f78;
+  --accent-dim: rgba(0, 143, 120, 0.16);
+  --accent-glow: rgba(0, 143, 120, 0.10);
+  --accent-secondary: #0878a8;
+  --accent-tertiary: #6941c6;
+  --border: #d9dee8;
+  --border-light: #c6cedb;
+  --g1: #008f78;
+  --g2: #0878a8;
+  --g3: #6941c6;
+  --success: #0b8f5b;
+  --warning: #c77700;
+}
+
+html[data-theme="light"] body {
+  background: var(--bg);
+}
+
+body, nav, .showcase-card, .project-card, .skill-card, .api-step, .lf-panel, .map-canvas, .etl-report-card, .etl-cohort-card {
+  transition: background-color .45s ease, color .45s ease, border-color .45s ease, box-shadow .45s ease;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -96,7 +136,7 @@ nav {
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 1rem 2rem;
-  background: rgba(10, 10, 15, 0.85);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(20px) saturate(1.2);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
@@ -104,7 +144,7 @@ nav {
 .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items:center; }
 .nav-links a {
   color: var(--text-muted);
   text-decoration: none;
@@ -686,6 +726,87 @@ section { padding: 6rem 2rem; }
   border-radius: 100px;
 }
 
+
+/* ===== INTERACTIVE SYSTEM SHOWCASE ===== */
+.brand-image { width: 280px; height: 155px; padding: 0; background: var(--bg-card); border: 1px solid var(--border-light); box-shadow: 0 20px 60px rgba(0, 168, 232, 0.15); }
+.brand-image::before { display: none; }
+.brand-image img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 18px; }
+
+.demo-toolbar { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+.demo-btn { padding: 0.45rem 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text-muted); font: 600 0.75rem/1 inherit; cursor: pointer; transition: all .2s ease; }
+.demo-btn:hover, .demo-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+.demo-select { padding: 0.45rem 0.65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text-muted); font: 500 0.75rem/1 inherit; }
+.demo-readout { margin-left: auto; font: 600 0.72rem/1 'JetBrains Mono', monospace; color: var(--text-dim); }
+.demo-hint { margin-top: 0.7rem; color: var(--text-dim); font-size: 0.72rem; }
+
+.lf-dashboard { display: grid; grid-template-columns: 1.5fr .85fr; gap: 1rem; }
+.lf-panel { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem; }
+.lf-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; }
+.lf-metric { border: 1px solid var(--border); border-radius: 10px; padding: .7rem; }
+.lf-metric-value { font: 700 1rem/1 'JetBrains Mono', monospace; color: var(--accent); }
+.lf-metric-label { margin-top: .3rem; font-size: .65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .06em; }
+.control-row { display: grid; grid-template-columns: 34px 1fr 48px; gap: .5rem; align-items: center; margin-top: .7rem; font: 600 .7rem/1 'JetBrains Mono', monospace; color: var(--text-dim); }
+.control-row input { width: 100%; accent-color: var(--accent); }
+
+.mapmatch-layout { display: grid; grid-template-columns: 1.45fr .8fr; gap: 1rem; }
+.map-canvas { position: relative; min-height: 300px; background: linear-gradient(145deg, rgba(0,168,232,.06), rgba(124,58,237,.04)), var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.map-canvas svg { width: 100%; height: 300px; display: block; }
+.map-legend { position: absolute; left: .75rem; bottom: .7rem; display: flex; gap: .8rem; flex-wrap: wrap; font-size: .68rem; color: var(--text-dim); background: rgba(10,10,15,.82); padding: .45rem .6rem; border-radius: 8px; border: 1px solid var(--border); }
+.legend-line { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: .3rem; border-radius: 4px; background: var(--warning); }
+.legend-line.corrected { background: var(--accent); }
+
+#roadBase { stroke: var(--border-light) !important; }
+#roadCenter { stroke: var(--text-dim) !important; }
+#mapVehicle { stroke: var(--bg) !important; }
+.map-legend { background: color-mix(in srgb, var(--bg-elevated) 92%, transparent); }
+
+.map-api-list { display: flex; flex-direction: column; gap: .65rem; }
+.api-step { border: 1px solid var(--border); border-radius: 10px; padding: .8rem; background: var(--bg); }
+.api-step strong { display: block; color: var(--text); font-size: .78rem; }
+.api-step span { display: block; margin-top: .25rem; color: var(--text-dim); font-size: .7rem; line-height: 1.5; }
+.api-chip { display: inline-block; margin-top: .45rem; padding: .18rem .45rem; border-radius: 5px; background: var(--accent-glow); color: var(--accent); border: 1px solid var(--accent-dim); font: 600 .62rem/1 'JetBrains Mono', monospace; }
+
+.etl-cohort { display:grid; grid-template-columns:repeat(4,1fr); gap:.65rem; margin:.9rem 0 1rem; }
+.etl-cohort-card { border:1px solid var(--border); border-radius:12px; padding:.75rem .8rem; background:linear-gradient(135deg, rgba(255,255,255,.025), rgba(0,212,170,.025)); }
+.etl-cohort-card span { display:block; font-size:.62rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; }
+.etl-cohort-card strong { display:block; margin-top:.25rem; font:700 1.15rem/1.1 'JetBrains Mono',monospace; color:var(--accent); }
+.etl-cohort-card small { display:block; margin-top:.25rem; color:var(--text-muted); font-size:.62rem; }
+.etl-report-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-top:.9rem; }
+.etl-report-card { border:1px solid var(--border); border-radius:12px; padding:1rem; background:var(--bg); }
+.etl-report-label { display:block; font:700 .58rem/1 'JetBrains Mono',monospace; letter-spacing:.1em; color:var(--text-dim); margin-bottom:.8rem; }
+.etl-report-user { display:flex; align-items:center; gap:.7rem; padding-bottom:.7rem; border-bottom:1px solid var(--border); }
+.etl-avatar { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--accent-glow); border:1px solid var(--accent); color:var(--accent); font:700 .68rem 'JetBrains Mono',monospace; }
+.etl-report-user strong,.etl-badge strong { display:block; color:var(--text); font-size:.75rem; }
+.etl-report-user small,.etl-badge small { display:block; margin-top:.18rem; color:var(--text-dim); font-size:.61rem; }
+.etl-metric-row { display:grid; grid-template-columns:1fr auto auto; gap:.7rem; align-items:center; padding:.55rem 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:.68rem; }
+.etl-metric-row:last-child { border-bottom:0; }
+.etl-metric-row strong { font:700 .75rem 'JetBrains Mono',monospace; color:var(--text); }
+.etl-metric-row i { font-style:normal; font-size:.58rem; color:var(--accent); }
+.etl-badge { display:flex; gap:.65rem; align-items:flex-start; padding:.55rem 0; border-bottom:1px solid rgba(255,255,255,.04); }
+.etl-badge:last-child { border-bottom:0; }
+.etl-badge > span { font-size:1.15rem; }
+@media (max-width: 760px) { .etl-cohort { grid-template-columns:repeat(2,1fr); } .etl-report-grid { grid-template-columns:1fr; } }
+.etl-flow { position: relative; display: flex; gap: .55rem; align-items: stretch; overflow-x: auto; padding: .25rem .1rem .8rem; scrollbar-width: thin; }
+.etl-node { position: relative; min-width: 92px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); padding: .85rem .6rem; text-align: center; transition: all .3s ease; }
+.etl-node.active { border-color: var(--accent); box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-3px); }
+.etl-node.done { border-color: rgba(0,212,170,.35); }
+.etl-node-icon { font-size: 1.15rem; }
+.etl-node-name { margin-top: .35rem; font-size: .7rem; font-weight: 700; color: var(--text); }
+.etl-node-sub { margin-top: .2rem; font-size: .58rem; color: var(--text-dim); line-height: 1.35; }
+.etl-arrow { flex: 0 0 18px; display: flex; align-items: center; justify-content: center; color: var(--accent); font: 700 1rem/1 'JetBrains Mono', monospace; }
+.etl-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: .65rem; margin-top: .9rem; }
+.etl-stat { padding: .75rem; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
+.etl-stat strong { display: block; font: 700 .95rem/1 'JetBrains Mono', monospace; color: var(--accent); }
+.etl-stat span { display: block; margin-top: .3rem; font-size: .62rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+.etl-note { margin-top: .8rem; padding: .7rem .85rem; border-left: 2px solid var(--accent); background: var(--accent-glow); color: var(--text-muted); font-size: .75rem; line-height: 1.55; }
+
+@media (max-width: 760px) {
+  .brand-image { width: 240px; height: 132px; }
+  .lf-dashboard, .mapmatch-layout { grid-template-columns: 1fr; }
+  .demo-readout { width: 100%; margin-left: 0; }
+  .etl-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ===== SHOWCASE (Robotics & Algorithms) ===== */
 #showcase { background: var(--bg-elevated); }
 .showcase-intro {
@@ -952,12 +1073,28 @@ footer a:hover { color: var(--accent); }
   }
 }
 
+
+.theme-toggle {
+  position: relative; width: 48px; height: 28px; flex: 0 0 auto;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: var(--bg-card); color: var(--text-muted); cursor: pointer;
+  padding: 0; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+  transition: border-color .3s ease, background .3s ease, transform .2s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
+.theme-toggle-track { position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding:0 6px; font-size:12px; opacity:.72; }
+.theme-toggle-thumb { position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; display:grid; place-items:center; background:var(--text); color:var(--bg); box-shadow:0 2px 8px rgba(0,0,0,.2); transition:transform .4s cubic-bezier(.2,.8,.2,1), background .4s ease, color .4s ease; }
+html[data-theme="light"] .theme-toggle-thumb { transform:translateX(20px); }
+.nav-actions { display:flex; align-items:center; gap:.8rem; }
+
 /* ===== RESPONSIVE ===== */
 .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
 @media (max-width: 768px) {
   .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-elevated); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 2rem; gap: 1rem; }
   .nav-links.active { display: flex; }
   .mobile-menu-btn { display: block; }
+  .nav-actions { gap:.55rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-avatar { width: 160px; height: 160px; font-size: 3.5rem; }
   .stats-bar { gap: 1.5rem; }
@@ -983,7 +1120,13 @@ footer a:hover { color: var(--accent); }
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">SA<span>.</span></a>
-    <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+        <span class="theme-toggle-track"><span>☀</span><span>☾</span></span>
+        <span class="theme-toggle-thumb" id="themeToggleThumb">☾</span>
+      </button>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Open navigation">☰</button>
+    </div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -1028,7 +1171,7 @@ footer a:hover { color: var(--accent); }
     </div>
     <div class="about-grid">
       <div class="about-left reveal">
-        <div class="about-avatar"><span>SA</span></div>
+        <div class="about-avatar brand-image"><img src="sonu-logo.png" alt="Sonu Ansari, Developer" loading="lazy"></div>
         <div class="about-info">
           <div class="info-row">
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -1049,9 +1192,9 @@ footer a:hover { color: var(--accent); }
         </div>
       </div>
       <div class="about-right reveal">
-        <p>I'm a <strong>Data & Cloud Engineer</strong> with 4 years of hands-on production experience building systems that actually scale. Currently a Senior Software Engineer at <strong>Zimetrics Technology</strong>, I maintain multiple ETL pipelines for a healthcare client — delivering audit-ready data with zero missed SLAs.</p>
-        <p>My proudest achievement? Cutting pipeline processing time and infrastructure cost by <strong>80%</strong> through profiling and rewriting PySpark jobs — saving $500/month and unblocking downstream teams. I also architected a real-time IoT fleet system tracking <strong>500–1,000 vehicles per fleet</strong> with sub-60-second data latency and zero data loss.</p>
-        <p>Beyond the day job, I build <strong>AI assistants</strong> that run locally on Android via Termux + Ubuntu — capable of surfing the web, controlling device settings, and interacting with apps. I ship fast, write clean code, and own outcomes across the modern data stack: <strong>PySpark, AWS, Kafka, Databricks, Redshift</strong>, and more.</p>
+        <p>I'm a <strong>Data & Cloud Engineer</strong> with 4 years of hands-on production experience building systems that actually scale. Currently a Senior Software Engineer at <strong>Zimetrics Technology</strong>, I maintain multiple ETL pipelines for a healthcare client, delivering audit-ready data with zero missed SLAs.</p>
+        <p>My proudest achievement? Cutting pipeline processing time and infrastructure cost by <strong>80%</strong> through profiling and rewriting PySpark jobs, saving $500/month and unblocking downstream teams. I also architected a real-time IoT fleet system tracking <strong>500–1,000 vehicles per fleet</strong> with sub-60-second data latency and zero data loss.</p>
+        <p>Beyond the day job, I build <strong>AI assistants</strong> that run locally on Android via Termux + Ubuntu, capable of surfing the web, controlling device settings, and interacting with apps. I ship fast, write clean code, and own outcomes across the modern data stack: <strong>PySpark, AWS, Kafka, Databricks, Redshift</strong>, and more.</p>
       </div>
     </div>
   </div>
@@ -1071,7 +1214,7 @@ footer a:hover { color: var(--accent); }
         <div class="exp-slide">
           <div class="exp-slide-inner">
             <div class="exp-slide-header">
-              <h3 class="exp-slide-role">Senior Software Engineer — Cloud & Data</h3>
+              <h3 class="exp-slide-role">Senior Software Engineer, Cloud & Data</h3>
               <p class="exp-slide-company">Zimetrics Technology</p>
               <div class="exp-slide-meta">
                 <span class="exp-slide-meta-item">
@@ -1118,7 +1261,7 @@ footer a:hover { color: var(--accent); }
                 </div>
                 <div class="exp-slide-ach-text">
                   <p class="exp-slide-ach-title">80% cost reduction</p>
-                  <p class="exp-slide-ach-detail">Cut pipeline processing time and infrastructure cost by profiling and rewriting PySpark jobs — <span class="exp-slide-ach-highlight">$500/month saving</span> and unblocking downstream teams.</p>
+                  <p class="exp-slide-ach-detail">Cut pipeline processing time and infrastructure cost by profiling and rewriting PySpark jobs, <span class="exp-slide-ach-highlight">$500/month saving</span> and unblocking downstream teams.</p>
                 </div>
               </div>
               <div class="exp-slide-achievement">
@@ -1432,64 +1575,170 @@ footer a:hover { color: var(--accent); }
   <div class="section-inner">
     <div class="section-header reveal">
       <span class="num">05.</span>
-      <h2>Robotics & Algorithms</h2>
+      <h2>Systems, Robotics & Algorithms</h2>
       <div class="line"></div>
     </div>
-    <p class="showcase-intro reveal">Interactive demos of the algorithmic work behind the resume bullets above — shortest-path routing, line-following control, and the geofence breach detection used on the fleet platform.</p>
+    <p class="showcase-intro reveal">Interactive engineering demos, from robot control and shortest-path routing to real-time geofencing, GPS correction with Google Maps Platform, and a high-throughput event-driven ETL architecture.</p>
     <div class="showcase-grid">
 
-      <div class="showcase-card reveal">
+      <!-- Interactive shortest path -->
+      <div class="showcase-card showcase-card-wide reveal">
         <div class="showcase-card-header">
           <h3>Shortest-Path Routing</h3>
-          <p>Grid-based pathfinding — the same class of algorithm used to route the autonomous transport robot at IIT Bombay.</p>
+          <p>Build obstacles, choose the algorithm, and watch the search frontier expand. This mirrors the core routing problem behind an autonomous transport robot.</p>
         </div>
-        <div class="showcase-canvas-wrap">
-          <canvas id="pathfindCanvas" width="440" height="280"></canvas>
+        <div class="demo-toolbar">
+          <button class="demo-btn active path-algo-btn" data-algo="astar">A*</button>
+          <button class="demo-btn path-algo-btn" data-algo="dijkstra">Dijkstra</button>
+          <button class="demo-btn path-algo-btn" data-algo="bfs">BFS</button>
+          <button class="demo-btn" id="pathRun">▶ Run</button>
+          <button class="demo-btn" id="pathRandom">Randomize</button>
+          <button class="demo-btn" id="pathClear">Clear</button>
+          <span class="demo-readout" id="pathStatus">Click cells to add/remove obstacles</span>
         </div>
+        <div class="showcase-canvas-wrap"><canvas id="pathfindCanvas" width="900" height="360"></canvas></div>
         <div class="showcase-legend">
-          <span><i class="dot start"></i>Start</span>
-          <span><i class="dot goal"></i>Goal</span>
-          <span><i class="dot visited"></i>Explored</span>
-          <span><i class="dot path"></i>Shortest path</span>
+          <span><i class="dot start"></i>Start</span><span><i class="dot goal"></i>Goal</span><span><i class="dot visited"></i>Explored</span><span><i class="dot path"></i>Shortest path</span>
         </div>
       </div>
 
-      <div class="showcase-card reveal">
+      <!-- Interactive line follower -->
+      <div class="showcase-card showcase-card-wide reveal">
         <div class="showcase-card-header">
           <h3>Line-Follower Control Loop</h3>
-          <p>Simulated sensor correction keeping a robot locked to a track — the classic line-following control problem.</p>
+          <p>A small PID-style feedback loop: sensors estimate lateral error, the controller adjusts motor speeds, and the robot converges back to the track.</p>
         </div>
-        <div class="showcase-canvas-wrap">
-          <svg id="lineFollowerSvg" viewBox="0 0 440 280" width="440" height="280">
-            <path id="trackPath" d="M30,230 C90,60 150,240 220,120 S 330,40 410,150" fill="none" stroke="#252535" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M30,230 C90,60 150,240 220,120 S 330,40 410,150" fill="none" stroke="#00d4aa" stroke-width="2" stroke-dasharray="6 8" opacity="0.5"/>
-            <g id="lfRobot">
-              <rect class="lf-robot-body" x="-13" y="-8" width="26" height="16" rx="4"/>
-              <circle class="lf-sensor" id="lfSensorL" cx="-9" cy="9" r="2.5"/>
-              <circle class="lf-sensor" id="lfSensorR" cx="9" cy="9" r="2.5"/>
-            </g>
-          </svg>
+        <div class="demo-toolbar">
+          <button class="demo-btn active" id="lfStart">⏸ Pause</button>
+          <button class="demo-btn" id="lfReset">Reset</button>
+          <span class="demo-readout" id="lfStatus">PID feedback active</span>
+        </div>
+        <div class="lf-dashboard">
+          <div class="lf-panel">
+            <svg id="lineFollowerSvg" viewBox="0 0 640 300" width="640" height="300" aria-label="Interactive line follower simulation">
+              <path id="trackPath" d="M35,245 C115,70 175,265 275,135 S 440,45 605,170" fill="none" stroke="#252535" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M35,245 C115,70 175,265 275,135 S 440,45 605,170" fill="none" stroke="#00d4aa" stroke-width="2" stroke-dasharray="6 8" opacity=".5"/>
+              <g id="lfRobot"><rect class="lf-robot-body" x="-15" y="-9" width="30" height="18" rx="4"/><circle class="lf-sensor" id="lfSensorL" cx="-10" cy="10" r="3"/><circle class="lf-sensor" id="lfSensorR" cx="10" cy="10" r="3"/></g>
+            </svg>
+          </div>
+          <div class="lf-panel">
+            <div class="lf-metrics">
+              <div class="lf-metric"><div class="lf-metric-value" id="lfError">0.00</div><div class="lf-metric-label">Lateral error</div></div>
+              <div class="lf-metric"><div class="lf-metric-value" id="lfCorrection">0.00</div><div class="lf-metric-label">Correction</div></div>
+              <div class="lf-metric"><div class="lf-metric-value" id="lfLeft">50%</div><div class="lf-metric-label">Left motor</div></div>
+              <div class="lf-metric"><div class="lf-metric-value" id="lfRight">50%</div><div class="lf-metric-label">Right motor</div></div>
+            </div>
+            <div class="control-row"><span>Kp</span><input id="lfKp" type="range" min="0" max="3" step="0.05" value="1.2"><span id="lfKpV">1.20</span></div>
+            <div class="control-row"><span>Ki</span><input id="lfKi" type="range" min="0" max="1" step="0.01" value="0.08"><span id="lfKiV">0.08</span></div>
+            <div class="control-row"><span>Kd</span><input id="lfKd" type="range" min="0" max="2" step="0.05" value="0.45"><span id="lfKdV">0.45</span></div>
+          </div>
         </div>
       </div>
 
+      <!-- Geofence -->
       <div class="showcase-card showcase-card-wide reveal">
         <div class="showcase-card-header">
           <h3>Live Geofencing</h3>
-          <p>Point-in-shape boundary detection for fleet tracking — circle, pentagon, or any n-sided fence, with live breach alerts.</p>
+          <p>Point-in-shape boundary detection for fleet tracking, switch the fence geometry and watch the vehicle trigger a live breach alert.</p>
         </div>
         <div class="showcase-controls">
           <button class="shape-btn active" data-shape="circle">Circle</button>
           <button class="shape-btn" data-shape="pentagon">Pentagon</button>
           <button class="shape-btn" data-shape="ngon">N-gon</button>
-          <div class="ngon-slider-wrap" id="ngonSliderWrap">
-            <input type="range" id="ngonSlider" min="3" max="12" value="6" aria-label="Number of fence sides">
-            <span id="ngonSliderValue">6 sides</span>
+          <div class="ngon-slider-wrap" id="ngonSliderWrap"><input type="range" id="ngonSlider" min="3" max="12" value="6" aria-label="Number of fence sides"><span id="ngonSliderValue">6 sides</span></div>
+        </div>
+        <div class="showcase-canvas-wrap"><canvas id="geofenceCanvas" width="900" height="320"></canvas><div class="geofence-alert" id="geofenceAlert">⚠ Geofence breach detected</div></div>
+      </div>
+
+      <!-- Google Maps / GPS correction -->
+      <div class="showcase-card showcase-card-wide reveal">
+        <div class="showcase-card-header">
+          <h3>GPS Correction & Road Matching</h3>
+          <p>Raw GPS from a moving vehicle can jump off the road because of signal noise, urban canyons, or multipath effects. In a production flow, Google Maps Platform can snap the noisy points to the road network before they are used for tracking, ETA, geofencing, or routing.</p>
+        </div>
+        <div class="demo-toolbar">
+          <button class="demo-btn active" id="mapRawBtn">Raw GPS</button>
+          <button class="demo-btn active" id="mapCorrectBtn">Road matched</button>
+          <button class="demo-btn" id="mapRandomize">↻ Randomize road</button>
+          <button class="demo-btn" id="mapAnimate">▶ Replay</button>
+          <span class="demo-readout" id="mapStatus">Noisy GPS projected onto the visible road</span>
+        </div>
+        <div class="mapmatch-layout">
+          <div class="map-canvas">
+            <svg id="mapMatchSvg" viewBox="0 0 760 300" preserveAspectRatio="none">
+              <path id="roadBase" d="M-20 230 C90 175 150 220 245 150 S405 45 505 120 S630 245 780 165" fill="none" stroke="#252535" stroke-width="34" stroke-linecap="round"/>
+              <path id="roadCenter" d="M-20 230 C90 175 150 220 245 150 S405 45 505 120 S630 245 780 165" fill="none" stroke="#6b6b82" stroke-width="2" stroke-dasharray="8 8"/>
+              <path id="correctedRoute" d="M-20 230 C90 175 150 220 245 150 S405 45 505 120 S630 245 780 165" fill="none" stroke="#00d4aa" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+              <g id="rawPoints"></g><g id="correctedPoints"></g>
+              <circle id="mapVehicle" cx="80" cy="190" r="7" fill="#00a8e8" stroke="#0a0a0f" stroke-width="3"/>
+            </svg>
+            <div class="map-legend"><span><i class="legend-line"></i>Raw GPS</span><span><i class="legend-line corrected"></i>Road-matched</span></div>
+          </div>
+          <div class="map-api-list">
+            <div class="api-step"><strong>1. Vehicle telemetry</strong><span>GPS latitude/longitude arrives every few seconds with heading, speed and timestamp.</span><span class="api-chip">AWS IoT / Kinesis</span></div>
+            <div class="api-step"><strong>2. Coordinate correction</strong><span>Send a batch of GPS points to Google Roads API → Snap to Roads to map noisy coordinates onto the road network.</span><span class="api-chip">Google Roads API</span></div>
+            <div class="api-step"><strong>3. Route intelligence</strong><span>Use corrected positions for route display, ETA, geofencing, replay and downstream analytics.</span><span class="api-chip">Routes API / Maps JS</span></div>
           </div>
         </div>
-        <div class="showcase-canvas-wrap">
-          <canvas id="geofenceCanvas" width="900" height="320"></canvas>
-          <div class="geofence-alert" id="geofenceAlert">⚠ Geofence breach detected</div>
+      </div>
+
+      <!-- Subscription reporting ETL -->
+      <div class="showcase-card showcase-card-wide reveal">
+        <div class="showcase-card-header">
+          <h3>Subscriber Insights ETL, From 100K Users to a Monthly Report</h3>
+          <p>Imagine a watch company collecting activity and purchase telemetry from a large user base. Every month, we first identify customers who are actively subscribed to the insight service. Only that eligible cohort is processed: their raw events are read, parsed, transformed into performance metrics, turned into observations and motivational badges, and finally delivered by email.</p>
         </div>
+        <div class="demo-toolbar">
+          <button class="demo-btn active" id="etlRun">▶ Run monthly report</button>
+          <button class="demo-btn" id="etlBurst">⚡ Simulate 10K/s</button>
+          <button class="demo-btn" id="etlReset">Reset</button>
+          <span class="demo-readout" id="etlStatus">Ready, filtering active subscribers</span>
+        </div>
+
+        <div class="etl-cohort">
+          <div class="etl-cohort-card"><span>👥 User pool</span><strong id="etlPool">100,000</strong><small>registered customers</small></div>
+          <div class="etl-cohort-card"><span>✓ Policy filter</span><strong id="etlSubscribers">18,420</strong><small>active subscribers</small></div>
+          <div class="etl-cohort-card"><span>📈 Monthly reports</span><strong id="etlReports">0</strong><small>eligible users processed</small></div>
+          <div class="etl-cohort-card"><span>✉ Delivery</span><strong id="etlDelivered">0%</strong><small>reports emailed</small></div>
+        </div>
+
+        <div class="etl-flow" id="etlFlow">
+          <div class="etl-node" data-etl="source"><div class="etl-node-icon">👥</div><div class="etl-node-name">User Pool</div><div class="etl-node-sub">100K users</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="policy"><div class="etl-node-icon">🔐</div><div class="etl-node-name">Subscription Filter</div><div class="etl-node-sub">active policy only</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="kinesis"><div class="etl-node-icon">📡</div><div class="etl-node-name">Kinesis</div><div class="etl-node-sub">10K events/sec</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="ddb"><div class="etl-node-icon">🗃️</div><div class="etl-node-name">DynamoDB</div><div class="etl-node-sub">raw activity</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="lambda"><div class="etl-node-icon">λ</div><div class="etl-node-name">Lambda</div><div class="etl-node-sub">read + parse</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="glue"><div class="etl-node-icon">⚙</div><div class="etl-node-name">Glue / Spark</div><div class="etl-node-sub">metrics + features</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="sfn"><div class="etl-node-icon">🔀</div><div class="etl-node-name">Step Functions</div><div class="etl-node-sub">orchestration</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="layers"><div class="etl-node-icon">🥉</div><div class="etl-node-name">Bronze → Silver → Gold</div><div class="etl-node-sub">trusted report data</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="insights"><div class="etl-node-icon">🧠</div><div class="etl-node-name">Insights Engine</div><div class="etl-node-sub">observations + badges</div></div><div class="etl-arrow">→</div>
+          <div class="etl-node" data-etl="email"><div class="etl-node-icon">✉</div><div class="etl-node-name">Email Delivery</div><div class="etl-node-sub">monthly report</div></div>
+        </div>
+
+        <div class="etl-stats">
+          <div class="etl-stat"><strong id="etlEvents">0</strong><span>Events read</span></div>
+          <div class="etl-stat"><strong id="etlValid">0</strong><span>Users validated</span></div>
+          <div class="etl-stat"><strong id="etlRows">0</strong><span>Gold report rows</span></div>
+          <div class="etl-stat"><strong id="etlLatency">,</strong><span>Pipeline status</span></div>
+        </div>
+
+        <div class="etl-report-grid">
+          <div class="etl-report-card">
+            <span class="etl-report-label">MONTHLY REPORT PREVIEW</span>
+            <div class="etl-report-user"><span class="etl-avatar">SA</span><div><strong>Subscriber #A10482</strong><small>Active plan, July report</small></div></div>
+            <div class="etl-metric-row"><span>Consistency</span><strong>92%</strong><i>↑ 8%</i></div>
+            <div class="etl-metric-row"><span>Goal completion</span><strong>87%</strong><i>↑ 12%</i></div>
+            <div class="etl-metric-row"><span>Active days</span><strong>24 / 31</strong><i>Strong</i></div>
+          </div>
+          <div class="etl-report-card">
+            <span class="etl-report-label">OBSERVATIONS & MOTIVATIONAL BADGES</span>
+            <div class="etl-badge"><span>🏆</span><div><strong>Consistency Champion</strong><small>Maintained activity on 24 of 31 days.</small></div></div>
+            <div class="etl-badge"><span>🔥</span><div><strong>Momentum Builder</strong><small>Improved goal completion by 12%.</small></div></div>
+            <div class="etl-badge"><span>💡</span><div><strong>Observation</strong><small>Your strongest performance was during weekday mornings.</small></div></div>
+          </div>
+        </div>
+
+        <div class="etl-note"><strong>Why this is ETL:</strong> subscription eligibility is applied before expensive processing; raw events are ingested and retained, Lambda handles parsing/validation, Glue/Spark creates reusable metrics, Step Functions coordinates the monthly workflow, and Bronze/Silver/Gold tables separate raw, trusted and business-ready data. The Gold layer feeds the observation/badge engine and APIs, while the final delivery stage sends each subscriber a personalized monthly report by email. Non-subscribers remain outside the reporting workflow.</div>
       </div>
 
     </div>
@@ -1509,14 +1758,14 @@ footer a:hover { color: var(--accent); }
         <div class="cert-icon">☁️</div>
         <div class="cert-info">
           <h3>AWS Certified Cloud Practitioner</h3>
-          <p>Amazon Web Services · Validated cloud fundamentals, architecture, and best practices</p>
+          <p>Amazon Web Services, Validated cloud fundamentals, architecture, and best practices</p>
         </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon">📊</div>
         <div class="cert-info">
           <h3>Databricks Certified Associate Data Engineer</h3>
-          <p>Databricks · Spark, Delta Lake, and production data pipeline development</p>
+          <p>Databricks, Spark, Delta Lake, and production data pipeline development</p>
         </div>
       </div>
     </div>
@@ -1535,7 +1784,7 @@ footer a:hover { color: var(--accent); }
       <div class="edu-icon">🎓</div>
       <div class="edu-info">
         <h3>Bachelor's Degree</h3>
-        <p>Goa University · Computer Science & Engineering</p>
+        <p>Goa University, Computer Science & Engineering</p>
       </div>
     </div>
   </div>
@@ -1552,7 +1801,7 @@ footer a:hover { color: var(--accent); }
     <div class="recog-card reveal">
       <div class="recog-icon">🏆</div>
       <div class="recog-info">
-        <h3>National-Level Robotics Competition — IIT Bombay</h3>
+        <h3>National-Level Robotics Competition, IIT Bombay</h3>
         <p>Selected among hundreds of teams nationwide to compete in IIT Bombay's engineering challenge. Designed shortest-path routing logic for an autonomous construction-material transport robot.</p>
       </div>
     </div>
@@ -1576,7 +1825,7 @@ footer a:hover { color: var(--accent); }
 
 <!-- Footer -->
 <footer>
-  <p>Designed & Built by Sonu Ansari · <span id="year"></span></p>
+  <p>Designed & Built by Sonu Ansari, <span id="year"></span></p>
 </footer>
 
 <script>
@@ -1796,189 +2045,260 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
   goTo(0);
 })();
 
-// ===== PATHFINDING VISUALIZER =====
+// ===== INTERACTIVE PATHFINDING VISUALIZER =====
 (function() {
   var canvas = document.getElementById('pathfindCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var cols = 12, rows = 8;
-  var cell = canvas.width / cols;
-  var cellH = canvas.height / rows;
-  var start = { r: rows - 1, c: 0 };
-  var goal = { r: 0, c: cols - 1 };
-  var grid, visited, order, path, done, rafId, lastStep, state;
-
-  function buildGrid() {
-    grid = Array.from({ length: rows }, function() { return Array(cols).fill(0); });
-    function wallCol(c, gapRow) {
-      for (var r = 0; r < rows; r++) if (r !== gapRow) grid[r][c] = 1;
-    }
-    wallCol(2, 0);
-    wallCol(5, rows - 1);
-    wallCol(8, 0);
-  }
+  var cols = 18, rows = 10, cellW = canvas.width / cols, cellH = canvas.height / rows;
+  var start = {r: rows - 2, c: 1}, goal = {r: 1, c: cols - 2};
+  var grid = [], visited = [], path = [], running = false, timer = null, algorithm = 'astar';
+  var statusEl = document.getElementById('pathStatus');
 
   function key(n) { return n.r + ',' + n.c; }
-
-  function resetSearch() {
-    visited = Array.from({ length: rows }, function() { return Array(cols).fill(false); });
-    order = [];
-    path = null;
-    visited[start.r][start.c] = true;
-    return { q: [start], parent: {} };
+  function resetGrid() {
+    grid = Array.from({length: rows}, function() { return Array(cols).fill(false); });
+    // A few structured walls make the first run visually interesting.
+    for (var r = 1; r < rows - 1; r++) { if (r !== 2 && r !== 7) grid[r][4] = true; }
+    for (var r2 = 1; r2 < rows - 1; r2++) { if (r2 !== 5) grid[r2][9] = true; }
+    for (var r3 = 1; r3 < rows - 1; r3++) { if (r3 !== 2 && r3 !== 8) grid[r3][14] = true; }
+    grid[start.r][start.c] = false; grid[goal.r][goal.c] = false;
+    visited = []; path = []; draw();
+    if (statusEl) statusEl.textContent = 'Click cells to add/remove obstacles';
   }
-
-  function stepBFS() {
-    if (!state.q.length) { done = true; return; }
-    var node = state.q.shift();
-    order.push(node);
-    if (node.r === goal.r && node.c === goal.c) {
-      var p = [], cur = node;
-      while (cur) { p.unshift(cur); cur = state.parent[key(cur)]; }
-      path = p;
-      done = true;
-      return;
-    }
-    [[1,0],[-1,0],[0,1],[0,-1]].forEach(function(d) {
-      var nr = node.r + d[0], nc = node.c + d[1];
-      if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited[nr][nc] && grid[nr][nc] === 0) {
-        visited[nr][nc] = true;
-        state.parent[key({ r: nr, c: nc })] = node;
-        state.q.push({ r: nr, c: nc });
+  function clearGrid() { grid = Array.from({length: rows}, function() { return Array(cols).fill(false); }); visited=[]; path=[]; draw(); if(statusEl) statusEl.textContent='Open grid, choose obstacles or run'; }
+  function randomize() {
+    for (var r=0;r<rows;r++) for(var c=0;c<cols;c++) grid[r][c] = Math.random() < 0.22;
+    grid[start.r][start.c]=false; grid[goal.r][goal.c]=false; visited=[]; path=[]; draw(); if(statusEl) statusEl.textContent='Random obstacles generated';
+  }
+  function neighbors(n) {
+    return [[1,0],[-1,0],[0,1],[0,-1]].map(function(d){return {r:n.r+d[0],c:n.c+d[1]};}).filter(function(x){return x.r>=0&&x.r<rows&&x.c>=0&&x.c<cols&&!grid[x.r][x.c];});
+  }
+  function heuristic(a,b){ return Math.abs(a.r-b.r)+Math.abs(a.c-b.c); }
+  function solve() {
+    if (running) return;
+    visited=[]; path=[]; running=true;
+    var queue=[start], parent={}, seen={}; seen[key(start)]=true;
+    var dist={}; dist[key(start)]=0;
+    var open=[{n:start,g:0,f:heuristic(start,goal)}]; var closed={};
+    function chooseAStar(){ open.sort(function(a,b){return a.f-b.f || a.g-b.g;}); return open.shift(); }
+    function step(){
+      if (algorithm === 'bfs') {
+        if (!queue.length) return finish(false);
+        var n=queue.shift(); visited.push(n);
+        if(n.r===goal.r&&n.c===goal.c) return finish(true, n);
+        neighbors(n).forEach(function(nb){var k=key(nb);if(!seen[k]){seen[k]=true;parent[k]=n;queue.push(nb);}});
+      } else {
+        var item=chooseAStar(); if(!item) return finish(false);
+        var n2=item.n, k2=key(n2); if(closed[k2]) return schedule(); closed[k2]=true; visited.push(n2);
+        if(n2.r===goal.r&&n2.c===goal.c) return finish(true,n2);
+        neighbors(n2).forEach(function(nb){
+          var k=key(nb), g=item.g+1;
+          if(closed[k]) return;
+          if(dist[k]===undefined || g<dist[k]){dist[k]=g;parent[k]=n2;var h=algorithm==='astar'?heuristic(nb,goal):0;open.push({n:nb,g:g,f:g+h});}
+        });
       }
-    });
-  }
-
-  function drawNode(n, color) {
-    var cx = n.c * cell + cell / 2, cy = n.r * cellH + cellH / 2;
-    ctx.beginPath();
-    ctx.arc(cx, cy, Math.min(cell, cellH) * 0.28, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (var r = 0; r < rows; r++) {
-      for (var c = 0; c < cols; c++) {
-        var x = c * cell, y = r * cellH;
-        if (grid[r][c] === 1) {
-          ctx.fillStyle = '#1c1c28';
-          ctx.fillRect(x + 1, y + 1, cell - 2, cellH - 2);
-        } else if (visited[r][c]) {
-          ctx.fillStyle = 'rgba(0, 212, 170, 0.18)';
-          ctx.fillRect(x + 1, y + 1, cell - 2, cellH - 2);
-        }
-        ctx.strokeStyle = 'rgba(255,255,255,0.03)';
-        ctx.strokeRect(x, y, cell, cellH);
-      }
-    }
-    if (path) {
-      ctx.strokeStyle = '#00d4aa';
-      ctx.lineWidth = 4;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      path.forEach(function(n, i) {
-        var cx = n.c * cell + cell / 2, cy = n.r * cellH + cellH / 2;
-        if (i === 0) ctx.moveTo(cx, cy); else ctx.lineTo(cx, cy);
-      });
-      ctx.stroke();
-    }
-    drawNode(start, '#00a8e8');
-    drawNode(goal, '#f59e0b');
-  }
-
-  function loop(ts) {
-    if (!lastStep) lastStep = ts;
-    if (ts - lastStep > 45) {
-      if (!done) stepBFS();
-      lastStep = ts;
-    }
-    draw();
-    if (done) {
-      rafId = setTimeout(function() {
-        state = resetSearch();
-        done = false;
-        rafId = requestAnimationFrame(loop);
-      }, 1800);
-    } else {
-      rafId = requestAnimationFrame(loop);
-    }
-  }
-
-  function start_() {
-    buildGrid();
-    state = resetSearch();
-    done = false;
-    lastStep = null;
-    if (prefersReducedMotion) {
-      while (!done) stepBFS();
       draw();
-    } else {
-      rafId = requestAnimationFrame(loop);
+      if (statusEl) statusEl.textContent = algorithm.toUpperCase() + ' exploring ' + visited.length + ' nodes…';
+      timer=setTimeout(step, 32);
     }
+    function schedule(){ timer=setTimeout(step,10); }
+    function finish(found,last){
+      if(found){ var cur=last; path=[]; while(cur){path.unshift(cur);cur=parent[key(cur)];} if(statusEl) statusEl.textContent=algorithm.toUpperCase()+' found '+path.length+' nodes after exploring '+visited.length; }
+      else if(statusEl) statusEl.textContent='No path found, add a gap or clear some obstacles';
+      running=false; draw();
+    }
+    step();
   }
-
-  function stop_() {
-    if (rafId) { cancelAnimationFrame(rafId); clearTimeout(rafId); rafId = null; }
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    var vis={}; visited.forEach(function(n){vis[key(n)]=true;}); var pat={}; path.forEach(function(n){pat[key(n)]=true;});
+    for(var r=0;r<rows;r++) for(var c=0;c<cols;c++){
+      var x=c*cellW,y=r*cellH,k=r+','+c;
+      ctx.fillStyle=grid[r][c]?'#1c1c28':pat[k]?'rgba(0,212,170,.28)':vis[k]?'rgba(0,212,170,.12)':'#0a0a0f';
+      ctx.fillRect(x+1,y+1,cellW-2,cellH-2);
+      ctx.strokeStyle='rgba(255,255,255,.035)';ctx.strokeRect(x,y,cellW,cellH);
+    }
+    if(path.length){ctx.strokeStyle='#00d4aa';ctx.lineWidth=5;ctx.lineCap='round';ctx.beginPath();path.forEach(function(n,i){var x=n.c*cellW+cellW/2,y=n.r*cellH+cellH/2;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();}
+    function node(n,color){ctx.beginPath();ctx.arc(n.c*cellW+cellW/2,n.r*cellH+cellH/2,Math.min(cellW,cellH)*.25,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
+    node(start,'#00a8e8'); node(goal,'#f59e0b');
   }
-
-  if (prefersReducedMotion) {
-    start_();
-  } else {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) { if (!rafId) start_(); }
-        else { stop_(); }
-      });
-    }, { threshold: 0.2 });
-    io.observe(canvas);
-  }
+  canvas.addEventListener('click',function(e){if(running)return;var rect=canvas.getBoundingClientRect();var c=Math.floor((e.clientX-rect.left)*canvas.width/rect.width/cellW),r=Math.floor((e.clientY-rect.top)*canvas.height/rect.height/cellH);if((r===start.r&&c===start.c)||(r===goal.r&&c===goal.c))return;grid[r][c]=!grid[r][c];visited=[];path=[];draw();if(statusEl)statusEl.textContent=grid[r][c]?'Obstacle added':'Obstacle removed';});
+  document.querySelectorAll('.path-algo-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.path-algo-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');algorithm=btn.dataset.algo;if(statusEl)statusEl.textContent='Algorithm: '+algorithm.toUpperCase();});});
+  document.getElementById('pathRun').addEventListener('click',solve); document.getElementById('pathRandom').addEventListener('click',randomize); document.getElementById('pathClear').addEventListener('click',clearGrid);
+  resetGrid();
 })();
 
-// ===== LINE FOLLOWER =====
+// ===== LINE FOLLOWER PID CONTROL LOOP =====
 (function() {
-  var svg = document.getElementById('lineFollowerSvg');
-  if (!svg) return;
-  var path = document.getElementById('trackPath');
-  var robot = document.getElementById('lfRobot');
-  var sensorL = document.getElementById('lfSensorL');
-  var sensorR = document.getElementById('lfSensorR');
-  var len = path.getTotalLength();
-  var t = 0;
-  var rafId = null;
-
-  function render(tt) {
-    var p1 = path.getPointAtLength(tt);
-    var p2 = path.getPointAtLength((tt + 1) % len);
-    var angle = Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
-    robot.setAttribute('transform', 'translate(' + p1.x + ',' + p1.y + ') rotate(' + angle + ')');
-    var turn = Math.sin(tt * 0.05);
-    sensorL.classList.toggle('active', turn > 0.3);
-    sensorR.classList.toggle('active', turn < -0.3);
+  var svg=document.getElementById('lineFollowerSvg'); if(!svg)return;
+  var path=document.getElementById('trackPath'), robot=document.getElementById('lfRobot'), sensorL=document.getElementById('lfSensorL'), sensorR=document.getElementById('lfSensorR');
+  var len=path.getTotalLength(), t=0, offset=18, integral=0, prevError=0, rafId=null, running=true;
+  var kp=document.getElementById('lfKp'),ki=document.getElementById('lfKi'),kd=document.getElementById('lfKd');
+  var errorEl=document.getElementById('lfError'),corrEl=document.getElementById('lfCorrection'),leftEl=document.getElementById('lfLeft'),rightEl=document.getElementById('lfRight');
+  function updateVals(){document.getElementById('lfKpV').textContent=(+kp.value).toFixed(2);document.getElementById('lfKiV').textContent=(+ki.value).toFixed(2);document.getElementById('lfKdV').textContent=(+kd.value).toFixed(2);}
+  [kp,ki,kd].forEach(function(x){x.addEventListener('input',updateVals);}); updateVals();
+  function frame(){
+    var p=path.getPointAtLength(t), pAhead=path.getPointAtLength(Math.min(t+2,len)), angle=Math.atan2(pAhead.y-p.y,pAhead.x-p.x);
+    // Offset represents lateral drift away from the center line. Sensor difference estimates it.
+    var sensorSignal=offset/24 + Math.sin(t*.025)*.03;
+    var error=sensorSignal, derivative=error-prevError; integral=Math.max(-3,Math.min(3,integral+error*.035));
+    var correction=(+kp.value)*error+(+ki.value)*integral+(+kd.value)*derivative; prevError=error;
+    var base=50,left=Math.max(0,Math.min(100,base-correction*18)),right=Math.max(0,Math.min(100,base+correction*18));
+    // Control output moves the robot back toward zero offset.
+    offset += (-correction*.9 + Math.sin(t*.01)*.02);
+    offset=Math.max(-32,Math.min(32,offset)); t+=1.35;
+    if(t>len)t=0;
+    robot.setAttribute('transform','translate('+p.x+','+p.y+') rotate('+(angle*180/Math.PI)+')');
+    sensorL.classList.toggle('active',error>0.06); sensorR.classList.toggle('active',error<-0.06);
+    errorEl.textContent=error.toFixed(2);corrEl.textContent=correction.toFixed(2);leftEl.textContent=Math.round(left)+'%';rightEl.textContent=Math.round(right)+'%';
+    if(running)rafId=requestAnimationFrame(frame);
   }
+  document.getElementById('lfStart').addEventListener('click',function(){running=!running;this.textContent=running?'⏸ Pause':'▶ Resume';document.getElementById('lfStatus').textContent=running?'PID feedback active':'Simulation paused';if(running)frame();});
+  document.getElementById('lfReset').addEventListener('click',function(){t=0;offset=18;integral=0;prevError=0;if(!running){running=true;document.getElementById('lfStart').textContent='⏸ Pause';}document.getElementById('lfStatus').textContent='Reset, PID feedback active';if(!rafId)frame();});
+  if(prefersReducedMotion){running=false;document.getElementById('lfStart').disabled=true;document.getElementById('lfStatus').textContent='Reduced motion, simulation paused';frame();}else{var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&!rafId&&running)frame();else if(!e.isIntersecting&&rafId){cancelAnimationFrame(rafId);rafId=null;}});},{threshold:.2});io.observe(svg);}
+})();
 
-  function loop() {
-    t += 1.3;
-    if (t > len) t = 0;
-    render(t);
-    rafId = requestAnimationFrame(loop);
+// ===== THEME TOGGLE =====
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeToggle'), thumb=document.getElementById('themeToggleThumb');
+  if(!btn)return;
+  var saved=localStorage.getItem('sonu-theme');
+  var initial=saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
+  function apply(theme){
+    root.setAttribute('data-theme',theme);
+    thumb.textContent=theme==='light'?'☀':'☾';
+    btn.setAttribute('aria-label',theme==='light'?'Switch to dark mode':'Switch to light mode');
+    btn.title=theme==='light'?'Switch to dark mode':'Switch to light mode';
+    localStorage.setItem('sonu-theme',theme);
   }
+  apply(initial);
+  btn.addEventListener('click',function(){apply(root.getAttribute('data-theme')==='light'?'dark':'light');});
+})();
 
-  function start_() { if (!rafId) rafId = requestAnimationFrame(loop); }
-  function stop_() { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+// ===== GPS ROAD-MATCHING DEMO =====
+(function(){
+  var svg=document.getElementById('mapMatchSvg'); if(!svg)return;
+  var rawGroup=document.getElementById('rawPoints'), correctedGroup=document.getElementById('correctedPoints'), vehicle=document.getElementById('mapVehicle');
+  var roadBase=document.getElementById('roadBase'), roadCenter=document.getElementById('roadCenter'), correctedRoute=document.getElementById('correctedRoute');
+  var rawBtn=document.getElementById('mapRawBtn'), corrBtn=document.getElementById('mapCorrectBtn'), randomize=document.getElementById('mapRandomize'), replay=document.getElementById('mapAnimate'), status=document.getElementById('mapStatus');
+  var W=760,H=300, roadPts=[], gpsPts=[], matchedPts=[], replayTimer=null, replayIndex=0;
+  var ns='http://www.w3.org/2000/svg';
 
-  if (prefersReducedMotion) {
-    render(len * 0.15);
-  } else {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) start_(); else stop_();
-      });
-    }, { threshold: 0.2 });
-    io.observe(svg);
+  function roadPath(points){
+    return points.map(function(p,i){ return (i?'L ':'M ')+p.x+' '+p.y; }).join(' ');
   }
+  function randomRoad(){
+    roadPts=[];
+    var n=9, y=H*.60, slope=(Math.random()-.5)*.12;
+    for(var i=0;i<n;i++){
+      var x=-35+i*(W+70)/(n-1);
+      var wave=55*Math.sin(i*.72+Math.random()*.8)+(Math.random()-.5)*28;
+      y=H*.52+wave+i*slope*20;
+      y=Math.max(48,Math.min(H-45,y));
+      roadPts.push({x:x,y:y});
+    }
+    var d=roadPath(roadPts);
+    roadBase.setAttribute('d',d); roadCenter.setAttribute('d',d); correctedRoute.setAttribute('d',d);
+    generateTelemetry(); draw();
+    status.textContent='New road generated, corrected points stay on this road';
+  }
+  function nearestOnSegment(p,a,b){
+    var dx=b.x-a.x,dy=b.y-a.y, len2=dx*dx+dy*dy, t=len2?((p.x-a.x)*dx+(p.y-a.y)*dy)/len2:0;
+    t=Math.max(0,Math.min(1,t));
+    return {x:a.x+t*dx,y:a.y+t*dy};
+  }
+  function snapToRoad(p){
+    var best=null,bestDist=Infinity;
+    for(var i=1;i<roadPts.length;i++){
+      var q=nearestOnSegment(p,roadPts[i-1],roadPts[i]), dx=p.x-q.x,dy=p.y-q.y,d=dx*dx+dy*dy;
+      if(d<bestDist){bestDist=d;best=q;}
+    }
+    return best;
+  }
+  function generateTelemetry(){
+    gpsPts=[]; matchedPts=[];
+    for(var i=0;i<34;i++){
+      var t=i/(34-1), target;
+      var pos=t*(roadPts.length-1), k=Math.min(roadPts.length-2,Math.floor(pos)), f=pos-k;
+      var a=roadPts[k],b=roadPts[k+1];
+      target={x:a.x+(b.x-a.x)*f,y:a.y+(b.y-a.y)*f};
+      var noiseX=(Math.random()-.5)*26, noiseY=(Math.random()-.5)*34;
+      var raw={x:target.x+noiseX,y:target.y+noiseY};
+      gpsPts.push(raw); matchedPts.push(snapToRoad(raw));
+    }
+  }
+  function circle(x,y,r,fill,opacity){var c=document.createElementNS(ns,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',r);c.setAttribute('fill',fill);c.setAttribute('opacity',opacity);return c;}
+  function draw(){
+    rawGroup.innerHTML=''; correctedGroup.innerHTML='';
+    gpsPts.forEach(function(p){rawGroup.appendChild(circle(p.x,p.y,3,'#f59e0b',rawBtn.classList.contains('active')?.82:0));});
+    matchedPts.forEach(function(p){correctedGroup.appendChild(circle(p.x,p.y,2.8,'#00d4aa',corrBtn.classList.contains('active')?.9:0));});
+    if(matchedPts.length){vehicle.setAttribute('cx',matchedPts[0].x);vehicle.setAttribute('cy',matchedPts[0].y);}
+  }
+  function toggle(btn){btn.classList.toggle('active');draw();}
+  rawBtn.addEventListener('click',function(){toggle(rawBtn);});
+  corrBtn.addEventListener('click',function(){toggle(corrBtn);});
+  randomize.addEventListener('click',function(){if(replayTimer){clearInterval(replayTimer);replayTimer=null;} randomRoad();});
+  replay.addEventListener('click',function(){
+    if(replayTimer){clearInterval(replayTimer);replayTimer=null;replay.textContent='▶ Replay';return;}
+    replayIndex=0; replay.textContent='⏸ Stop'; status.textContent='Vehicle replay, raw GPS noisy, corrected position follows road';
+    replayTimer=setInterval(function(){
+      if(replayIndex>=matchedPts.length){clearInterval(replayTimer);replayTimer=null;replay.textContent='▶ Replay';status.textContent='Replay complete, every corrected point lies on the visible road';return;}
+      var raw=gpsPts[replayIndex], matched=matchedPts[replayIndex];
+      vehicle.setAttribute('cx',matched.x);vehicle.setAttribute('cy',matched.y);
+      status.textContent='Point '+(replayIndex+1)+', raw offset '+Math.round(Math.hypot(raw.x-matched.x,raw.y-matched.y))+' px, snapped to road';
+      replayIndex++;
+    },90);
+  });
+  randomRoad();
+})();
+
+// ===== SUBSCRIBER INSIGHTS ETL DEMO =====
+(function(){
+  var nodes=[].slice.call(document.querySelectorAll('.etl-node')), run=document.getElementById('etlRun'),burst=document.getElementById('etlBurst'),reset=document.getElementById('etlReset'),status=document.getElementById('etlStatus');
+  var eventsEl=document.getElementById('etlEvents'),validEl=document.getElementById('etlValid'),rowsEl=document.getElementById('etlRows'),latEl=document.getElementById('etlLatency');
+  var poolEl=document.getElementById('etlPool'),subEl=document.getElementById('etlSubscribers'),reportsEl=document.getElementById('etlReports'),deliveredEl=document.getElementById('etlDelivered');
+  var running=false,timer=null,idx=0;
+  var stages=[
+    ['Filtering user pool…',null,null,null],
+    ['18,420 active subscriptions selected',null,null,null],
+    ['Reading high-throughput activity stream…','10,000','18,420',null],
+    ['Raw events persisted in DynamoDB…','310,000','18,420',null],
+    ['Lambda parsing + validation…','310,000','18,392',null],
+    ['Glue / Spark building monthly features…','310,000','18,392','286,740'],
+    ['Step Functions coordinating report jobs…','310,000','18,392','286,740'],
+    ['Gold tables ready for reporting…','310,000','18,392','286,740'],
+    ['Generating observations + motivational badges…','310,000','18,392','286,740'],
+    ['Sending personalized emails…','310,000','18,392','286,740']
+  ];
+  function resetAll(){
+    if(timer)clearInterval(timer); timer=null; running=false; idx=0;
+    nodes.forEach(function(n){n.classList.remove('active','done');});
+    eventsEl.textContent='0'; validEl.textContent='0'; rowsEl.textContent='0'; latEl.textContent=',';
+    reportsEl.textContent='0'; deliveredEl.textContent='0%'; poolEl.textContent='100,000'; subEl.textContent='18,420';
+    status.textContent='Ready, filtering active subscribers'; run.classList.add('active');
+  }
+  function setNumbers(stage){
+    var d=stages[stage]||[]; if(d[1])eventsEl.textContent=d[1]; if(d[2])validEl.textContent=d[2]; if(d[3])rowsEl.textContent=d[3];
+    if(stage>=8)reportsEl.textContent='18,392';
+    if(stage>=9){deliveredEl.textContent='99.7%';latEl.textContent='< 2 min';}
+  }
+  function execute(){
+    if(running)return; resetAll(); running=true; idx=0; run.classList.remove('active');
+    timer=setInterval(function(){
+      nodes.forEach(function(n,i){n.classList.toggle('active',i===idx); if(i<idx)n.classList.add('done');});
+      status.textContent=stages[idx][0]; setNumbers(idx);
+      if(idx===9){nodes.forEach(function(n){n.classList.remove('active');n.classList.add('done');});status.textContent='Complete, 18,392 personalized reports delivered';latEl.textContent='< 2 min';clearInterval(timer);timer=null;running=false;run.classList.add('active');return;}
+      idx++;
+    },430);
+  }
+  run.addEventListener('click',execute);
+  burst.addEventListener('click',function(){
+    resetAll(); nodes.forEach(function(n){n.classList.add('done');});
+    eventsEl.textContent='10,000';validEl.textContent='18,420';rowsEl.textContent=',';reportsEl.textContent=',';deliveredEl.textContent=',';latEl.textContent='10K/s';
+    status.textContent='Live ingest simulated, 10,000 activity events/sec feeding the reporting lake';
+  });
+  reset.addEventListener('click',resetAll); resetAll();
 })();
 
 // ===== GEOFENCING SIMULATOR =====
