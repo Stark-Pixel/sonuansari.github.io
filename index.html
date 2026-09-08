@@ -44,7 +44,6 @@
   "telephone": "+917219260661",
   "address": { "@type": "PostalAddress", "addressLocality": "Goa", "addressCountry": "India" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Goa University" },
-  "worksFor": { "@type": "Organization", "name": "Zimetrics Technology" },
   "sameAs": ["https://www.linkedin.com/in/sonu-ansari-88927120a"],
   "knowsAbout": ["Data Engineering", "ETL Pipelines", "PySpark", "AWS", "Databricks", "Apache Kafka", "IoT Systems", "Real-time Streaming", "Data Warehousing", "Cloud Computing", "AI Assistants", "Linux", "Termux", "Ubuntu"],
   "hasCredential": [
@@ -140,6 +139,10 @@ nav {
   backdrop-filter: blur(20px) saturate(1.2);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
+}
+nav.scrolled {
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  box-shadow: 0 4px 30px rgba(0,0,0,.16);
 }
 .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
@@ -1088,12 +1091,96 @@ footer a:hover { color: var(--accent); }
 html[data-theme="light"] .theme-toggle-thumb { transform:translateX(20px); }
 .nav-actions { display:flex; align-items:center; gap:.8rem; }
 
+/* ===== RESPONSIVE / DEVICE POLISH ===== */
+html { overflow-x: hidden; }
+img, svg, canvas { max-width: 100%; }
+button, input, select { max-width: 100%; }
+.nav-inner { position: relative; min-width: 0; }
+.nav-logo { flex: 0 0 auto; }
+.nav-links { min-width: 0; }
+.hero-content, .section-inner { width: 100%; }
+.about-right, .about-left, .project-card, .showcase-card, .skill-category, .exp-slide-inner, .cert-card, .edu-card, .recog-card, .contact-box { min-width: 0; }
+.info-row a { overflow-wrap: anywhere; }
+
+/* Animated mobile menu */
+.mobile-menu-btn {
+  display: none; width: 42px; height: 42px; padding: 0; border: 1px solid var(--border);
+  border-radius: 10px; background: var(--bg-card); color: var(--text);
+  align-items: center; justify-content: center; transition: border-color .25s ease, background .25s ease, transform .25s ease;
+}
+.mobile-menu-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+.menu-icon { width: 19px; height: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+.menu-icon span { display: block; width: 100%; height: 2px; border-radius: 2px; background: currentColor; transition: transform .3s ease, opacity .2s ease; transform-origin: center; }
+.mobile-menu-btn.active .menu-icon span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-btn.active .menu-icon span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.mobile-menu-btn.active .menu-icon span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 980px) {
+  nav { padding: .8rem 1.25rem; }
+  .nav-inner { min-height: 42px; }
+  .nav-actions { margin-left: auto; }
+  .mobile-menu-btn { display: inline-flex; }
+  .nav-links {
+    position: absolute; top: calc(100% + .6rem); left: 0; right: 0; z-index: 20;
+    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    padding: .55rem; background: color-mix(in srgb, var(--bg-elevated) 96%, transparent);
+    border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.18);
+    opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px) scale(.98);
+    transform-origin: top right; transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  }
+  .nav-links.active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: .8rem .85rem; border-radius: 9px; font-size: .9rem; }
+  .nav-links a:hover { background: var(--accent-glow); }
+  .nav-links a::after { display: none; }
+}
+
+@media (max-width: 700px) {
+  section { padding: 4rem 1rem; }
+  .hero { min-height: 100svh; padding: 6.5rem 1rem 3rem; }
+  .hero-badge { max-width: 100%; text-align: center; }
+  .hero-desc { font-size: .92rem; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+  .stats-bar { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem .75rem; margin-top: 2.5rem; }
+  .section-header { flex-wrap: wrap; gap: .65rem; margin-bottom: 2rem; }
+  .section-header .line { flex-basis: 100%; max-width: none; }
+  .section-header h2 { font-size: 1.45rem; }
+  .about-left { display: flex; flex-direction: column; align-items: center; }
+  .about-info { width: 100%; max-width: 360px; }
+  .brand-image { width: min(280px, 90vw); height: auto; aspect-ratio: 280 / 155; }
+  .showcase-grid, .project-grid, .skills-grid, .cert-grid { grid-template-columns: 1fr; }
+  .showcase-card, .project-card, .skill-category { padding: 1.15rem; }
+  .showcase-card-wide { grid-column: auto; }
+  .demo-readout { margin-left: 0; width: 100%; }
+  .lf-dashboard, .mapmatch-layout { grid-template-columns: 1fr; }
+  .etl-cohort { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .etl-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-box { padding: 2rem 1.15rem; }
+  .contact-links { flex-direction: column; }
+  .contact-link { justify-content: center; width: 100%; }
+}
+
+@media (max-width: 420px) {
+  nav { padding-inline: .75rem; }
+  .nav-logo { font-size: 1rem; }
+  .theme-toggle { width: 44px; height: 26px; }
+  .theme-toggle-thumb { width: 18px; height: 18px; top: 3px; left: 3px; }
+  html[data-theme="light"] .theme-toggle-thumb { transform: translateX(18px); }
+  .nav-actions { gap: .4rem; }
+  .hero h1 { font-size: clamp(2.2rem, 12vw, 3rem); }
+  .hero-subtitle { font-size: .95rem; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .stat-value { font-size: 1.3rem; }
+  .stat-label { font-size: .62rem; }
+  .exp-slide-metrics-grid { grid-template-columns: 1fr 1fr; gap: .55rem; }
+  .exp-slide-inner { padding: 1rem; }
+  .etl-cohort, .etl-stats { grid-template-columns: 1fr 1fr; }
+}
+
 /* ===== RESPONSIVE ===== */
 .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
 @media (max-width: 768px) {
-  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-elevated); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 2rem; gap: 1rem; }
-  .nav-links.active { display: flex; }
-  .mobile-menu-btn { display: block; }
+  .nav-links { padding-inline: .35rem; }
   .nav-actions { gap:.55rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-avatar { width: 160px; height: 160px; font-size: 3.5rem; }
@@ -1125,9 +1212,11 @@ html[data-theme="light"] .theme-toggle-thumb { transform:translateX(20px); }
         <span class="theme-toggle-track"><span>☀</span><span>☾</span></span>
         <span class="theme-toggle-thumb" id="themeToggleThumb">☾</span>
       </button>
-      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Open navigation">☰</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
     </div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primaryNav">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -1192,9 +1281,9 @@ html[data-theme="light"] .theme-toggle-thumb { transform:translateX(20px); }
         </div>
       </div>
       <div class="about-right reveal">
-        <p>I'm a <strong>Data & Cloud Engineer</strong> with 4 years of hands-on production experience building systems that actually scale. Currently a Senior Software Engineer at <strong>Zimetrics Technology</strong>, I maintain multiple ETL pipelines for a healthcare client, delivering audit-ready data with zero missed SLAs.</p>
-        <p>My proudest achievement? Cutting pipeline processing time and infrastructure cost by <strong>80%</strong> through profiling and rewriting PySpark jobs, saving $500/month and unblocking downstream teams. I also architected a real-time IoT fleet system tracking <strong>500–1,000 vehicles per fleet</strong> with sub-60-second data latency and zero data loss.</p>
-        <p>Beyond the day job, I build <strong>AI assistants</strong> that run locally on Android via Termux + Ubuntu, capable of surfing the web, controlling device settings, and interacting with apps. I ship fast, write clean code, and own outcomes across the modern data stack: <strong>PySpark, AWS, Kafka, Databricks, Redshift</strong>, and more.</p>
+        <p>I'm a <strong>Data & Cloud Engineer</strong> who enjoys turning complex engineering problems into systems that are reliable, measurable, and easy to evolve. My work sits at the intersection of <strong>data engineering, cloud systems, real-time processing, and software development</strong>, with a strong focus on building things that solve practical problems.</p>
+        <p>I build <strong>ETL pipelines, streaming systems, IoT platforms, data products, and cloud-native applications</strong>. I care about what happens beyond simply making a pipeline run: performance, observability, data quality, scalability, and the experience of the people consuming the data. I've achieved up to <strong>80% reductions in processing time and infrastructure cost</strong> through PySpark profiling and optimization, and built real-time systems capable of handling telemetry from <strong>500–1,000 vehicles per fleet</strong>.</p>
+        <p>Outside traditional data platforms, I enjoy experimenting with <strong>AI assistants, automation, Linux, Android, and developer tooling</strong>. Whether I'm designing an architecture, optimizing a query, debugging a distributed workflow, or building a small tool from scratch, I like understanding the problem deeply and turning it into a clean, working solution.</p>
       </div>
     </div>
   </div>
@@ -1844,16 +1933,12 @@ revealElements.forEach(el => revealObserver.observe(el));
 
 // ===== NAVBAR SCROLL EFFECT =====
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  if (currentScroll > 100) {
-    navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-    navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
-  } else {
-    navbar.style.background = 'rgba(10, 10, 15, 0.85)';
-    navbar.style.boxShadow = 'none';
-  }
-});
+function updateNavbarState() {
+  if (!navbar) return;
+  navbar.classList.toggle('scrolled', window.pageYOffset > 100);
+}
+window.addEventListener('scroll', updateNavbarState, { passive: true });
+updateNavbarState();
 
 // ===== PARTICLE BACKGROUND =====
 const canvas = document.getElementById('particles');
@@ -1939,6 +2024,20 @@ document.addEventListener('visibilitychange', () => {
     animateParticles();
   }
 });
+
+// ===== MOBILE NAVIGATION =====
+(function(){
+  var btn=document.getElementById('mobileMenuBtn'), menu=document.getElementById('primaryNav');
+  if(!btn || !menu) return;
+  function closeMenu(){ menu.classList.remove('active'); btn.classList.remove('active'); btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Open navigation'); }
+  btn.addEventListener('click', function(){
+    var open=!menu.classList.contains('active');
+    menu.classList.toggle('active',open); btn.classList.toggle('active',open);
+    btn.setAttribute('aria-expanded',String(open)); btn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+  document.addEventListener('click', function(e){ if(!menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
+  window.addEventListener('resize', function(){ if(window.innerWidth>980) closeMenu(); }, {passive:true});
+})();
 
 // ===== SMOOTH SCROLL FOR NAV LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
