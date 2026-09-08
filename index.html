@@ -8,6 +8,7 @@
 <meta name="keywords" content="Sonu Ansari, Data Engineer, Software Engineer, PySpark, AWS, Databricks, ETL Pipelines, IoT, Kafka, Goa, India, Senior Data Engineer, Cloud Engineer, Real-time Streaming, AI Assistant, Termux, Ubuntu Android">
 <meta name="author" content="Sonu Ansari">
 <meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0a0a0f">
 <link rel="canonical" href="https://sonuansari.dev">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sonuansari.dev">
@@ -1321,7 +1322,82 @@ button, input, select { max-width: 100%; }
   .cat-tail, .cat-figure.pounce, .cat-figure.scrolling .cat-tail { animation: none !important; }
   .cat-figure, .cat-ear, .cat-pupil { transition: none !important; }
 }
+
+/* ===== CAT COMPANION — theme-aware colors + 3D tilt + safety ===== */
+:root {
+  --cat-eye: #ffffff;
+  --cat-pupil: #101828;
+  --cat-mouth: #0a0a0f;
+  color-scheme: dark;
+}
+html[data-theme="light"] {
+  --cat-eye: #ffffff;
+  --cat-pupil: #101828;
+  --cat-mouth: #101828;
+  color-scheme: light;
+}
+
+/* ===== PATHFINDING CANVAS — theme-aware colors ===== */
+:root {
+  --pf-cell: #101019;
+  --pf-obstacle: #2b2b3c;
+  --pf-grid: rgba(255,255,255,.07);
+  --pf-visited: rgba(0,212,170,.16);
+  --pf-pathfill: rgba(0,212,170,.32);
+  --pf-path: #00d4aa;
+  --pf-start: #00a8e8;
+  --pf-goal: #f59e0b;
+}
+html[data-theme="light"] {
+  --pf-cell: #eef1f7;
+  --pf-obstacle: #c3cbda;
+  --pf-grid: rgba(16,24,40,.12);
+  --pf-visited: rgba(0,143,120,.20);
+  --pf-pathfill: rgba(0,143,120,.34);
+  --pf-path: #008f78;
+  --pf-start: #0878a8;
+  --pf-goal: #c77700;
+}
+
+/* ===== CAT EXTRA ACTIONS ===== */
+.cat-figure.spin { animation: catSpin .7s cubic-bezier(.34,1.56,.64,1); }
+@keyframes catSpin {
+  0% { transform: rotate(0) scale(1); }
+  50% { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.cat-figure.purr { animation: catPurr .28s ease-in-out 4; }
+@keyframes catPurr {
+  0%,100% { transform: translateY(0) scale(1,1); }
+  50% { transform: translateY(1px) scale(1.03,.96); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-figure.spin, .cat-figure.purr { animation: none !important; }
+}
+.cat-eye-white { fill: var(--cat-eye); }
+.cat-pupil { fill: var(--cat-pupil); }
+.cat-mouth, .cat-nose { stroke: var(--cat-mouth); }
+.cat-nose { fill: var(--cat-mouth); }
+.cat-figure { perspective: 520px; }
+.cat-figure svg { transform-style: preserve-3d; will-change: transform; }
+.cat-companion { animation: catBob 4.5s ease-in-out infinite; }
+@keyframes catBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.cat-shadow {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 64%;
+  height: 12px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.38) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-companion { animation: none; }
+}
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -1332,6 +1408,7 @@ button, input, select { max-width: 100%; }
 <div class="cat-companion" id="catCompanion">
   <div class="cat-bubble" id="catBubble" aria-hidden="true"></div>
   <button class="cat-figure" id="catFigure" type="button" aria-label="Site cat, click to say hi">
+    <span class="cat-shadow" aria-hidden="true"></span>
     <svg id="catSvg" viewBox="0 0 120 120" width="100%" height="100%" aria-hidden="true">
       <path class="cat-tail" d="M92 92 C 112 92, 116 68, 100 58 C 112 66, 110 86, 92 88 Z" fill="var(--accent)"/>
       <ellipse class="cat-body-fill" cx="60" cy="78" rx="34" ry="24"/>
@@ -1400,12 +1477,12 @@ button, input, select { max-width: 100%; }
     <p class="hero-desc">Building production ETL pipelines, real-time data systems, cloud platforms, and AI powered tools at scale. 4+ years of experience cutting costs, reducing latency, and shipping reliable engineering solutions.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Get in Touch</a>
-      <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+      <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn Profile</a>
     </div>
     <div class="stats-bar">
       <div class="stat-item"><div class="stat-value">4+</div><div class="stat-label">Years Experience</div></div>
       <div class="stat-item"><div class="stat-value">80%</div><div class="stat-label">Cost Reduction</div></div>
-      <div class="stat-item"><div class="stat-value">1K+</div><div class="stat-label">Vehicles Tracked</div></div>
+      <div class="stat-item"><div class="stat-value">1000+</div><div class="stat-label">Vehicles Tracked</div></div>
       <div class="stat-item"><div class="stat-value">&lt;30s</div><div class="stat-label">Telemetry Latency</div></div>
     </div>
   </div>
@@ -1437,7 +1514,7 @@ button, input, select { max-width: 100%; }
           </div>
           <div class="info-row">
             <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank">linkedin.com/in/sonu-ansari</a>
+            <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" rel="noopener noreferrer">linkedin.com/in/sonu-ansari</a>
           </div>
         </div>
       </div>
@@ -2085,7 +2162,7 @@ button, input, select { max-width: 100%; }
       <p>I'm always open to discussing data engineering, cloud architecture, IoT systems, or AI automation projects.</p>
       <div class="contact-links">
         <a href="mailto:sonuansari@duck.com" class="contact-link">📧 Email Me</a>
-        <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" class="contact-link">💼 LinkedIn</a>
+        <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" rel="noopener noreferrer" class="contact-link">💼 LinkedIn</a>
         <a href="tel:+917219260661" class="contact-link">📱 Call</a>
       </div>
     </div>
@@ -2223,11 +2300,15 @@ document.addEventListener('visibilitychange', () => {
 // ===== SMOOTH SCROLL FOR NAV LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    if (!href || href === '#') { e.preventDefault(); return; }
+    const target = document.querySelector(href);
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       document.querySelector('.nav-links').classList.remove('active');
+      var mmb = document.getElementById('mobileMenuBtn');
+      if (mmb) { mmb.classList.remove('active'); mmb.setAttribute('aria-expanded', 'false'); }
     }
   });
 });
@@ -2301,6 +2382,7 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
   });
 
   document.addEventListener('keydown', function(e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName || '')) return;
     if (e.key === 'ArrowLeft') goTo(current - 1);
     if (e.key === 'ArrowRight') goTo(current + 1);
   });
@@ -2322,7 +2404,26 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
     isDragging = false;
   }, { passive: true });
 
+  // Autoplay: auto-advance every 6s; pause on hover, touch, or keyboard focus
+  var AUTOPLAY_MS = 6000, autoTimer = null, reduceMotion = false;
+  try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  function startAuto() {
+    if (reduceMotion || autoTimer) return;
+    autoTimer = setInterval(function() { goTo(current + 1 >= total ? 0 : current + 1); }, AUTOPLAY_MS);
+  }
+  function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+  var carouselBox = track.parentElement;
+  if (carouselBox) {
+    carouselBox.addEventListener('mouseenter', stopAuto);
+    carouselBox.addEventListener('mouseleave', startAuto);
+    carouselBox.addEventListener('focusin', stopAuto);
+    carouselBox.addEventListener('focusout', startAuto);
+  }
+  track.addEventListener('touchstart', stopAuto, { passive: true });
+  [prevBtn, nextBtn].forEach(function(b) { b.addEventListener('click', function() { stopAuto(); startAuto(); }); });
+
   goTo(0);
+  startAuto();
 })();
 
 // ===== INTERACTIVE PATHFINDING VISUALIZER =====
@@ -2390,18 +2491,29 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
     }
     step();
   }
+  function cssVar(name,fb){var v=getComputedStyle(document.documentElement).getPropertyValue(name);v=v?v.trim():'';return v||fb;}
   function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
+    var col={
+      obstacle:cssVar('--pf-obstacle','#1c1c28'),
+      cell:cssVar('--pf-cell','#0a0a0f'),
+      gridline:cssVar('--pf-grid','rgba(255,255,255,.05)'),
+      visited:cssVar('--pf-visited','rgba(0,212,170,.12)'),
+      pathfill:cssVar('--pf-pathfill','rgba(0,212,170,.28)'),
+      path:cssVar('--pf-path','#00d4aa'),
+      start:cssVar('--pf-start','#00a8e8'),
+      goal:cssVar('--pf-goal','#f59e0b')
+    };
     var vis={}; visited.forEach(function(n){vis[key(n)]=true;}); var pat={}; path.forEach(function(n){pat[key(n)]=true;});
     for(var r=0;r<rows;r++) for(var c=0;c<cols;c++){
       var x=c*cellW,y=r*cellH,k=r+','+c;
-      ctx.fillStyle=grid[r][c]?'#1c1c28':pat[k]?'rgba(0,212,170,.28)':vis[k]?'rgba(0,212,170,.12)':'#0a0a0f';
+      ctx.fillStyle=grid[r][c]?col.obstacle:pat[k]?col.pathfill:vis[k]?col.visited:col.cell;
       ctx.fillRect(x+1,y+1,cellW-2,cellH-2);
-      ctx.strokeStyle='rgba(255,255,255,.035)';ctx.strokeRect(x,y,cellW,cellH);
+      ctx.strokeStyle=col.gridline;ctx.strokeRect(x,y,cellW,cellH);
     }
-    if(path.length){ctx.strokeStyle='#00d4aa';ctx.lineWidth=5;ctx.lineCap='round';ctx.beginPath();path.forEach(function(n,i){var x=n.c*cellW+cellW/2,y=n.r*cellH+cellH/2;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();}
-    function node(n,color){ctx.beginPath();ctx.arc(n.c*cellW+cellW/2,n.r*cellH+cellH/2,Math.min(cellW,cellH)*.25,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
-    node(start,'#00a8e8'); node(goal,'#f59e0b');
+    if(path.length){ctx.strokeStyle=col.path;ctx.lineWidth=5;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();path.forEach(function(n,i){var x=n.c*cellW+cellW/2,y=n.r*cellH+cellH/2;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();}
+    function node(n,color){ctx.beginPath();ctx.arc(n.c*cellW+cellW/2,n.r*cellH+cellH/2,Math.min(cellW,cellH)*.25,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();ctx.lineWidth=2;ctx.strokeStyle=col.cell;ctx.stroke();}
+    node(start,col.start); node(goal,col.goal);
   }
   canvas.addEventListener('click',function(e){if(running)return;var rect=canvas.getBoundingClientRect();var c=Math.floor((e.clientX-rect.left)*canvas.width/rect.width/cellW),r=Math.floor((e.clientY-rect.top)*canvas.height/rect.height/cellH);if((r===start.r&&c===start.c)||(r===goal.r&&c===goal.c))return;grid[r][c]=!grid[r][c];visited=[];path=[];draw();if(statusEl)statusEl.textContent=grid[r][c]?'Obstacle added':'Obstacle removed';});
   document.querySelectorAll('.path-algo-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.path-algo-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');algorithm=btn.dataset.algo;if(statusEl)statusEl.textContent='Algorithm: '+algorithm.toUpperCase();});});
@@ -2447,6 +2559,8 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
   var initial=saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark');
   function apply(theme){
     root.setAttribute('data-theme',theme);
+    var mt=document.querySelector('meta[name="theme-color"]');
+    if(mt) mt.setAttribute('content', theme==='light' ? '#f5f7fb' : '#0a0a0f');
     thumb.textContent=theme==='light'?'☀':'☾';
     btn.setAttribute('aria-label',theme==='light'?'Switch to dark mode':'Switch to light mode');
     btn.title=theme==='light'?'Switch to dark mode':'Switch to light mode';
@@ -2752,8 +2866,31 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
     'Nine lives, zero downtime.',
     'Scroll gently, I might be napping.',
     'Hiss-terically fast queries.',
-    'Paws for a coffee break?'
+    'Paws for a coffee break?',
+    'Did someone say cat-alog? 📚',
+    'My tail has better throughput than your WiFi.',
+    'Pro tip: pet the cat, deploy with confidence.',
+    'I sits. I fits. I pipelines. 🐈',
+    'Bug? Never heard of it. I only catch mice.',
+    'That query plan looks claw-some!',
+    'Stretch break! Even senior cats need one. 🧘',
+    'Knocked a NULL value off the table earlier.',
+    'Rub my belly for 99.9% uptime.',
+    'Mew.exe has stopped responding… just kidding 😼'
   ];
+  var ambientMessages = [
+    'Just counting rows over here… 🐟',
+    'I approve of this pipeline. ✅',
+    'That latency looks purr-etty good.',
+    'Whisker-based monitoring: all green.',
+    'Quiet shift. Too quiet… 🐭',
+    'Dreaming of infinite treats and zero pager alerts.'
+  ];
+  function trick() {
+    figure.classList.remove('pounce');
+    void figure.offsetWidth;
+    figure.classList.add('pounce');
+  }
   var bubbleTimer = null;
   function speak(text) {
     bubble.textContent = text;
@@ -2774,11 +2911,24 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
     pupilL.setAttribute('cy', baseL.y + oy);
     pupilR.setAttribute('cx', baseR.x + ox);
     pupilR.setAttribute('cy', baseR.y + oy);
+    // 3D head tilt: the whole face leans toward the cursor
+    var tiltRX = Math.max(-12, Math.min(12, -dy / 42));
+    var tiltRY = Math.max(-16, Math.min(16, dx / 42));
+    var catSvg = document.getElementById('catSvg');
+    if (catSvg) catSvg.style.transform = 'rotateX(' + tiltRX.toFixed(1) + 'deg) rotateY(' + tiltRY.toFixed(1) + 'deg)';
+  }
+  function resetGaze() {
+    pupilL.setAttribute('cx', baseL.x); pupilL.setAttribute('cy', baseL.y);
+    pupilR.setAttribute('cx', baseR.x); pupilR.setAttribute('cy', baseR.y);
+    var catSvg = document.getElementById('catSvg');
+    if (catSvg) catSvg.style.transform = '';
   }
   document.addEventListener('mousemove', function(e) { updateGaze(e.clientX, e.clientY); }, { passive: true });
   document.addEventListener('touchmove', function(e) {
     if (e.touches && e.touches[0]) updateGaze(e.touches[0].clientX, e.touches[0].clientY);
   }, { passive: true });
+  document.documentElement.addEventListener('mouseleave', resetGaze);
+  document.addEventListener('touchend', resetGaze, { passive: true });
 
   var scrollTimer = null;
   window.addEventListener('scroll', function() {
@@ -2791,11 +2941,63 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
   figure.addEventListener('mouseleave', function() { figure.classList.remove('notice'); });
 
   figure.addEventListener('click', function() {
-    figure.classList.remove('pounce');
-    void figure.offsetWidth;
-    figure.classList.add('pounce');
+    trick();
     speak(messages[Math.floor(Math.random() * messages.length)]);
   });
+
+  // Double-click: celebratory spin
+  figure.addEventListener('dblclick', function() {
+    figure.classList.remove('spin');
+    void figure.offsetWidth;
+    figure.classList.add('spin');
+    speak('Wheee! Full 360! 🌀');
+  });
+
+  // Press-and-hold: petting mode with purring
+  figure.addEventListener('mousedown', function() {
+    figure.classList.add('purr');
+    speak('Purrr… keep petting 🤍');
+  });
+  window.addEventListener('mouseup', function() { figure.classList.remove('purr'); });
+  figure.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) { e.preventDefault(); figure.classList.remove('spin'); void figure.offsetWidth; figure.classList.add('spin'); speak('Wheee! Full 360! 🌀'); }
+  }, { passive: false });
+
+  // Keyboard: press "C" anywhere to make the cat meow
+  document.addEventListener('keydown', function(e) {
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName || '')) return;
+    if (e.key === 'c' || e.key === 'C') { trick(); speak('Meow! You found the secret key 🐾'); }
+  });
+
+  // Reacts when you flip the theme switch
+  try {
+    new MutationObserver(function(muts) {
+      muts.forEach(function(m) {
+        if (m.attributeName !== 'data-theme') return;
+        var t = document.documentElement.getAttribute('data-theme');
+        figure.classList.remove('spin'); void figure.offsetWidth; figure.classList.add('spin');
+        speak(t === 'light' ? 'Ooh, bright mode! Where are my shades? 😎' : 'Ahh, back to the dark side. Cozy. 🌙');
+      });
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  } catch (e) {}
+
+  // Greets you when you come back to the tab
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) speak('Welcome back! I kept your seat warm. 🐾');
+  });
+
+  // Ambient behaviour: occasional idle comments so the cat feels alive
+  (function ambient() {
+    var delay = 22000 + Math.random() * 20000;
+    setTimeout(function() {
+      if (!document.hidden && !bubble.classList.contains('show')) {
+        speak(ambientMessages[Math.floor(Math.random() * ambientMessages.length)]);
+        figure.classList.add('notice');
+        setTimeout(function() { figure.classList.remove('notice'); }, 1600);
+      }
+      ambient();
+    }, delay);
+  })();
 
   function scheduleBlink() {
     var delay = 2600 + Math.random() * 3200;
