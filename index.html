@@ -1200,12 +1200,169 @@ button, input, select { max-width: 100%; }
 
 /* Particle canvas */
 #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.4; }
+
+/* ===== CAT COMPANION ===== */
+.cat-companion {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 600;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+.cat-companion.hidden .cat-figure,
+.cat-companion.hidden .cat-hide-btn,
+.cat-companion.hidden .cat-bubble { display: none; }
+.cat-figure {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform-origin: 50% 100%;
+  transition: transform .18s cubic-bezier(.34,1.56,.64,1);
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.28));
+}
+.cat-figure:hover { transform: translateY(-3px) scale(1.04); }
+.cat-figure:active { transform: translateY(0) scale(0.97); }
+.cat-figure.pounce { animation: catPounce .5s cubic-bezier(.34,1.56,.64,1); }
+.cat-figure.notice .cat-ear { transform: rotate(0deg) scaleY(1.12); }
+@keyframes catPounce {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-14px) scale(1.06) rotate(-4deg); }
+  55% { transform: translateY(2px) scale(0.97) rotate(3deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+.cat-body-fill { fill: var(--accent); }
+.cat-body-shade { fill: var(--accent-tertiary); opacity: .35; }
+.cat-eye-white { fill: var(--bg-elevated); }
+.cat-pupil { fill: var(--bg); transition: transform .05s linear; }
+.cat-mouth, .cat-nose { stroke: var(--bg); }
+.cat-nose { fill: var(--bg); }
+.cat-ear { transform-origin: 50% 100%; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+.cat-tail { transform-origin: 78% 82%; animation: catTailIdle 3.6s ease-in-out infinite; }
+.cat-figure.scrolling .cat-tail { animation: catTailFast 0.55s ease-in-out infinite; }
+.cat-figure.scrolling .cat-ear { transform: rotate(-6deg) scaleY(1.08); }
+@keyframes catTailIdle {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(10deg); }
+}
+@keyframes catTailFast {
+  0%, 100% { transform: rotate(-14deg); }
+  50% { transform: rotate(16deg); }
+}
+.cat-lid { fill: var(--bg-card); opacity: 0; transform-origin: center; transition: opacity .06s linear; }
+.cat-figure.blink .cat-lid { opacity: 1; }
+.cat-bubble {
+  max-width: 168px;
+  padding: .5rem .7rem;
+  margin-bottom: .35rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px 12px 4px 12px;
+  color: var(--text);
+  font-size: .74rem;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: 0 10px 30px rgba(0,0,0,.24);
+  opacity: 0;
+  transform: translateY(6px) scale(.96);
+  transition: opacity .2s ease, transform .2s ease;
+  pointer-events: none;
+}
+.cat-bubble.show { opacity: 1; transform: translateY(0) scale(1); }
+.cat-hide-btn {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-dim);
+  font-size: .65rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  align-self: flex-start;
+  margin-top: -4px;
+  transition: all .2s ease;
+}
+.cat-hide-btn:hover { color: var(--text); border-color: var(--accent); }
+.cat-restore-btn {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 600;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--accent);
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.24);
+  transition: all .2s ease;
+}
+.cat-restore-btn.show { display: flex; }
+.cat-restore-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+@media (max-width: 700px) {
+  .cat-companion { right: .75rem; bottom: .85rem; }
+  .cat-figure { width: 58px; height: 58px; }
+  .cat-bubble { max-width: 128px; font-size: .68rem; }
+  .cat-restore-btn { right: .75rem; bottom: .85rem; width: 38px; height: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-tail, .cat-figure.pounce, .cat-figure.scrolling .cat-tail { animation: none !important; }
+  .cat-figure, .cat-ear, .cat-pupil { transition: none !important; }
+}
 </style>
 </head>
 <body>
 
 <!-- Particle Background -->
 <canvas id="particles"></canvas>
+
+<!-- Cat Companion -->
+<div class="cat-companion" id="catCompanion">
+  <div class="cat-bubble" id="catBubble" aria-hidden="true"></div>
+  <button class="cat-figure" id="catFigure" type="button" aria-label="Site cat, click to say hi">
+    <svg id="catSvg" viewBox="0 0 120 120" width="100%" height="100%" aria-hidden="true">
+      <path class="cat-tail" d="M92 92 C 112 92, 116 68, 100 58 C 112 66, 110 86, 92 88 Z" fill="var(--accent)"/>
+      <ellipse class="cat-body-fill" cx="60" cy="78" rx="34" ry="24"/>
+      <path class="cat-ear" id="catEarL" d="M32 46 L24 20 L48 38 Z" fill="var(--accent)"/>
+      <path class="cat-ear" id="catEarR" d="M88 46 L96 20 L72 38 Z" fill="var(--accent)"/>
+      <path d="M35 42 L30 26 L46 37 Z" fill="var(--accent-secondary)" opacity=".55"/>
+      <path d="M85 42 L90 26 L74 37 Z" fill="var(--accent-secondary)" opacity=".55"/>
+      <circle class="cat-body-fill" cx="60" cy="52" r="26"/>
+      <g id="catEyeL">
+        <circle class="cat-eye-white" cx="49" cy="50" r="7.5"/>
+        <circle class="cat-pupil" id="pupilL" cx="49" cy="50" r="3.4"/>
+        <ellipse class="cat-lid" cx="49" cy="50" rx="8" ry="7.5"/>
+      </g>
+      <g id="catEyeR">
+        <circle class="cat-eye-white" cx="71" cy="50" r="7.5"/>
+        <circle class="cat-pupil" id="pupilR" cx="71" cy="50" r="3.4"/>
+        <ellipse class="cat-lid" cx="71" cy="50" rx="8" ry="7.5"/>
+      </g>
+      <path class="cat-nose" d="M60 58 L57 62 L63 62 Z"/>
+      <path class="cat-mouth" d="M60 62 Q60 66 54 66 M60 62 Q60 66 66 66" fill="none" stroke-width="1.6" stroke-linecap="round"/>
+      <g stroke="var(--accent-secondary)" stroke-width="1" opacity=".55" stroke-linecap="round">
+        <line x1="24" y1="54" x2="40" y2="52"/>
+        <line x1="24" y1="60" x2="40" y2="59"/>
+        <line x1="96" y1="54" x2="80" y2="52"/>
+        <line x1="96" y1="60" x2="80" y2="59"/>
+      </g>
+    </svg>
+  </button>
+  <button class="cat-hide-btn" id="catHideBtn" type="button" aria-label="Hide cat companion" title="Hide cat companion">✕</button>
+</div>
+<button class="cat-restore-btn" id="catRestoreBtn" type="button" aria-label="Show cat companion" title="Show cat companion">🐾</button>
 
 <!-- Navigation -->
 <nav id="navbar">
@@ -2572,6 +2729,102 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
     }, { threshold: 0.2 });
     io.observe(canvas);
   }
+})();
+
+// ===== CAT COMPANION =====
+(function() {
+  var figure = document.getElementById('catFigure');
+  if (!figure) return;
+  var companion = document.getElementById('catCompanion');
+  var bubble = document.getElementById('catBubble');
+  var hideBtn = document.getElementById('catHideBtn');
+  var restoreBtn = document.getElementById('catRestoreBtn');
+  var pupilL = document.getElementById('pupilL');
+  var pupilR = document.getElementById('pupilR');
+  var baseL = { x: 49, y: 50 }, baseR = { x: 71, y: 50 };
+  var maxOffset = 2.6;
+
+  var messages = [
+    'Meow-nitoring your uptime 🐾',
+    'ETL? More like meow-TL.',
+    'Purr-fect pipeline today.',
+    'I chased a byte earlier.',
+    'Nine lives, zero downtime.',
+    'Scroll gently, I might be napping.',
+    'Hiss-terically fast queries.',
+    'Paws for a coffee break?'
+  ];
+  var bubbleTimer = null;
+  function speak(text) {
+    bubble.textContent = text;
+    bubble.classList.add('show');
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(function() { bubble.classList.remove('show'); }, 2200);
+  }
+
+  function updateGaze(clientX, clientY) {
+    var rect = figure.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    var dx = clientX - cx, dy = clientY - cy;
+    var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    var ox = (dx / dist) * maxOffset;
+    var oy = (dy / dist) * maxOffset;
+    pupilL.setAttribute('cx', baseL.x + ox);
+    pupilL.setAttribute('cy', baseL.y + oy);
+    pupilR.setAttribute('cx', baseR.x + ox);
+    pupilR.setAttribute('cy', baseR.y + oy);
+  }
+  document.addEventListener('mousemove', function(e) { updateGaze(e.clientX, e.clientY); }, { passive: true });
+  document.addEventListener('touchmove', function(e) {
+    if (e.touches && e.touches[0]) updateGaze(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+
+  var scrollTimer = null;
+  window.addEventListener('scroll', function() {
+    figure.classList.add('scrolling');
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() { figure.classList.remove('scrolling'); }, 500);
+  }, { passive: true });
+
+  figure.addEventListener('mouseenter', function() { figure.classList.add('notice'); });
+  figure.addEventListener('mouseleave', function() { figure.classList.remove('notice'); });
+
+  figure.addEventListener('click', function() {
+    figure.classList.remove('pounce');
+    void figure.offsetWidth;
+    figure.classList.add('pounce');
+    speak(messages[Math.floor(Math.random() * messages.length)]);
+  });
+
+  function scheduleBlink() {
+    var delay = 2600 + Math.random() * 3200;
+    setTimeout(function() {
+      figure.classList.add('blink');
+      setTimeout(function() {
+        figure.classList.remove('blink');
+        scheduleBlink();
+      }, 140);
+    }, delay);
+  }
+  scheduleBlink();
+
+  function applyVisibility(hidden) {
+    companion.classList.toggle('hidden', hidden);
+    restoreBtn.classList.toggle('show', hidden);
+    try { localStorage.setItem('sonu-cat-hidden', hidden ? '1' : '0'); } catch (e) {}
+  }
+  var savedHidden = false;
+  try { savedHidden = localStorage.getItem('sonu-cat-hidden') === '1'; } catch (e) {}
+  applyVisibility(savedHidden);
+  hideBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    applyVisibility(true);
+  });
+  restoreBtn.addEventListener('click', function() {
+    applyVisibility(false);
+    speak('Hi again! 🐾');
+  });
 })();
 </script>
 </body>
