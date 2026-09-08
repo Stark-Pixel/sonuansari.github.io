@@ -390,6 +390,8 @@ section { padding: 6rem 2rem; }
   line-height: 1.3;
   margin: 0 0 0.25rem 0;
 }
+.company-link { margin-left:.5rem; font-size:.72rem; font-family:'JetBrains Mono',monospace; color:var(--accent); text-decoration:none; white-space:nowrap; border-bottom:1px dashed currentColor; transition:opacity .2s ease, color .2s ease; }
+.company-link:hover { color:var(--accent-secondary); opacity:.9; }
 .exp-slide-company {
   font-size: 0.95rem;
   font-weight: 600;
@@ -1236,7 +1238,7 @@ button, input, select { max-width: 100%; }
     <div class="hero-badge"><span class="dot"></span> Available for Opportunities</div>
     <h1>Sonu Ansari<span class="gradient">.</span></h1>
     <p class="hero-subtitle">Senior Data Engineer & Software Engineer</p>
-    <p class="hero-desc">Building production ETL pipelines, real-time IoT systems, and AI assistants at scale. 4+ years of experience cutting costs, reducing latency, and shipping reliable data platforms.</p>
+    <p class="hero-desc">Building production ETL pipelines, real-time data systems, cloud platforms, and AI powered tools at scale. 4+ years of experience cutting costs, reducing latency, and shipping reliable engineering solutions.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Get in Touch</a>
       <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
@@ -1298,13 +1300,13 @@ button, input, select { max-width: 100%; }
       <div class="line"></div>
     </div>
     <div class="exp-carousel">
-      <div class="exp-track" id="expTrack" style="--slide-count:4">
+      <div class="exp-track" id="expTrack" style="--slide-count:5">
         <!-- Slide 1: Overview -->
         <div class="exp-slide">
           <div class="exp-slide-inner">
             <div class="exp-slide-header">
               <h3 class="exp-slide-role">Senior Software Engineer, Cloud & Data</h3>
-              <p class="exp-slide-company">Zimetrics Technology</p>
+              <p class="exp-slide-company">Zimetrics Technology <a class="company-link" href="https://zimetrics.com/" target="_blank" rel="noopener noreferrer">Official site ↗</a></p>
               <div class="exp-slide-meta">
                 <span class="exp-slide-meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1322,7 +1324,7 @@ button, input, select { max-width: 100%; }
                 <span class="exp-slide-tag">AWS</span>
                 <span class="exp-slide-tag">PySpark</span>
               </div>
-              <p class="exp-slide-desc">Leading data platform initiatives for healthcare and IoT clients. Own end-to-end pipeline architecture, performance optimization, and real-time streaming systems.</p>
+              <p class="exp-slide-desc">Senior engineering role focused on data platforms, cloud systems, real-time processing, automation, and quality engineering. I work across architecture, implementation, optimization, testing, and production operations, turning high-volume data and device signals into reliable products and decision-ready data.</p>
             </div>
           </div>
         </div>
@@ -1389,7 +1391,7 @@ button, input, select { max-width: 100%; }
                 </div>
                 <div class="exp-slide-ach-text">
                   <p class="exp-slide-ach-title">End-to-end IoT telemetry platform</p>
-                  <p class="exp-slide-ach-detail">Tracking 500–1,000 live vehicles per fleet, ingesting per-second data with <span class="exp-slide-ach-highlight">zero data loss</span>.</p>
+                  <p class="exp-slide-ach-detail">Tracking 1K+ live vehicles across fleets, ingesting per-second data with <span class="exp-slide-ach-highlight">zero data loss</span>.</p>
                 </div>
               </div>
               <div class="exp-slide-achievement">
@@ -1423,7 +1425,23 @@ button, input, select { max-width: 100%; }
           </div>
         </div>
 
-        <!-- Slide 4: Impact Metrics -->
+        <!-- Slide 4: Engineering toolkit -->
+        <div class="exp-slide">
+          <div class="exp-slide-inner">
+            <h4 class="exp-slide-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+              Engineering toolkit & delivery
+            </h4>
+            <div class="exp-slide-achievements">
+              <div class="exp-slide-achievement"><div class="exp-slide-ach-icon">✓</div><div class="exp-slide-ach-text"><p class="exp-slide-ach-title">Data engineering</p><p class="exp-slide-ach-detail">PySpark, Databricks, AWS Glue, Redshift, PostgreSQL, Apache Airflow, and Delta Lake for batch and streaming data products.</p></div></div>
+              <div class="exp-slide-achievement"><div class="exp-slide-ach-icon">✓</div><div class="exp-slide-ach-text"><p class="exp-slide-ach-title">Time-series & telemetry</p><p class="exp-slide-ach-detail">Designed around high-frequency telemetry and time-based workloads using services such as Amazon Timestream alongside event streaming and object storage.</p></div></div>
+              <div class="exp-slide-achievement"><div class="exp-slide-ach-icon">✓</div><div class="exp-slide-ach-text"><p class="exp-slide-ach-title">Quality engineering</p><p class="exp-slide-ach-detail">Robot Framework, automated validation, data-quality checks, CI/CD, and workflow testing to catch failures before they reach downstream consumers.</p></div></div>
+              <div class="exp-slide-achievement"><div class="exp-slide-ach-icon">✓</div><div class="exp-slide-ach-text"><p class="exp-slide-ach-title">AI & intelligent automation</p><p class="exp-slide-ach-detail">Applied AI tooling, LLM workflows, automation, and developer assistants to reduce repetitive work and accelerate engineering tasks.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5: Impact Metrics -->
         <div class="exp-slide">
           <div class="exp-slide-inner">
             <h4 class="exp-slide-card-title">
@@ -1470,6 +1488,7 @@ button, input, select { max-width: 100%; }
         <button class="exp-slide-dot" data-index="1" aria-label="Go to slide 2"></button>
         <button class="exp-slide-dot" data-index="2" aria-label="Go to slide 3"></button>
         <button class="exp-slide-dot" data-index="3" aria-label="Go to slide 4"></button>
+        <button class="exp-slide-dot" data-index="4" aria-label="Go to slide 5"></button>
       </div>
       <button class="exp-slide-nav-btn" id="expNext" aria-label="Next slide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
@@ -1524,6 +1543,7 @@ button, input, select { max-width: 100%; }
           <span class="skill-tag">Redis</span>
           <span class="skill-tag">Amazon Redshift</span>
           <span class="skill-tag">Delta Lake</span>
+          <span class="skill-tag">Amazon Timestream</span>
         </div>
       </div>
       <div class="skill-category reveal">
@@ -1547,11 +1567,15 @@ button, input, select { max-width: 100%; }
           <span class="skill-tag">Linux</span>
           <span class="skill-tag">Termux</span>
           <span class="skill-tag">Ubuntu</span>
+          <span class="skill-tag">Robot Framework</span>
         </div>
       </div>
       <div class="skill-category reveal">
         <div class="skill-cat-title">AI & Automation</div>
         <div class="skill-tags">
+          <span class="skill-tag">AI / ML</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">OpenCV</span>
           <span class="skill-tag">LLMs</span>
           <span class="skill-tag">OpenAI API</span>
           <span class="skill-tag">LangChain</span>
@@ -1606,53 +1630,51 @@ button, input, select { max-width: 100%; }
         </div>
       </div>
 
-      <!-- IoT Fleet Tracker -->
+
+
+      <!-- Raspberry Pi Face Recognition Surveillance -->
       <div class="project-card reveal">
-        <div class="project-icon">📡</div>
-        <div class="project-title">IoT Fleet Telemetry Platform</div>
-        <div class="project-desc">Real-time vehicle tracking system processing per-second GPS and sensor data from 500–1,000 vehicles per fleet with sub-30-second latency and zero data loss.</div>
+        <div class="project-icon">📷</div>
+        <div class="project-title">Raspberry Pi Face Recognition Surveillance</div>
+        <div class="project-desc">A personal home surveillance prototype using a Raspberry Pi webcam and OpenCV to recognize people at the door or inside the home, record activity, and notify the owner when an unfamiliar or unauthorized person is detected.</div>
         <ul class="project-features">
-          <li>Per-second data ingestion via AWS IoT Core</li>
-          <li>Serverless streaming with Kinesis + Lambda</li>
-          <li>Real-time geofencing and alert engine</li>
-          <li>Live dashboard with Google Maps integration</li>
+          <li>Real-time face detection and recognition with OpenCV</li>
+          <li>Known-face enrollment and recognition history</li>
+          <li>Automatic video recording for detected activity</li>
+          <li>Owner alerts for unknown or unauthorized access</li>
+          <li>Remote access to recorded events from a phone</li>
         </ul>
         <div class="project-metrics">
-          <div class="project-metric"><strong>&lt;30s</strong>Latency</div>
-          <div class="project-metric"><strong>1K+</strong>Vehicles</div>
-          <div class="project-metric"><strong>0%</strong>Data Loss</div>
+          <div class="project-metric"><strong>Edge</strong>Processing</div>
+          <div class="project-metric"><strong>24/7</strong>Monitoring</div>
+          <div class="project-metric"><strong>Real-time</strong>Alerts</div>
         </div>
         <div class="project-tags">
-          <span class="project-tag">AWS IoT</span>
-          <span class="project-tag">Kinesis</span>
-          <span class="project-tag">Lambda</span>
-          <span class="project-tag">DynamoDB</span>
-          <span class="project-tag">Google Maps API</span>
+          <span class="project-tag">Raspberry Pi</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">Computer Vision</span>
+          <span class="project-tag">Linux</span>
         </div>
       </div>
 
-      <!-- ETL Optimizer -->
+      <!-- Robotics shortest path -->
       <div class="project-card reveal">
-        <div class="project-icon">⚡</div>
-        <div class="project-title">ETL Pipeline Optimizer</div>
-        <div class="project-desc">Profiling and optimization toolkit that reduced PySpark pipeline processing time and infrastructure cost by 80% through intelligent job rewriting and resource tuning.</div>
+        <div class="project-icon">🤖</div>
+        <div class="project-title">Autonomous Robot Navigation</div>
+        <div class="project-desc">A robotics project focused on autonomous movement through constrained environments, combining shortest-path algorithms, sensor feedback, and control logic for reliable navigation.</div>
         <ul class="project-features">
-          <li>Automated Spark job profiling and bottleneck detection</li>
-          <li>Partitioning strategy optimization</li>
-          <li>Memory and executor tuning recommendations</li>
-          <li>Data quality validation automation</li>
+          <li>Shortest-path routing and obstacle avoidance</li>
+          <li>Grid-based path planning experiments</li>
+          <li>Sensor-driven movement decisions</li>
+          <li>Control-loop tuning for stable motion</li>
         </ul>
-        <div class="project-metrics">
-          <div class="project-metric"><strong>80%</strong>Faster</div>
-          <div class="project-metric"><strong>$500</strong>Saved/Month</div>
-          <div class="project-metric"><strong>0</strong>Missed SLAs</div>
-        </div>
         <div class="project-tags">
-          <span class="project-tag">PySpark</span>
-          <span class="project-tag">Databricks</span>
-          <span class="project-tag">AWS Glue</span>
-          <span class="project-tag">Step Functions</span>
-          <span class="project-tag">Redshift</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Algorithms</span>
+          <span class="project-tag">Robotics</span>
+          <span class="project-tag">Computer Vision</span>
+          <span class="project-tag">Embedded Systems</span>
         </div>
       </div>
     </div>
@@ -1732,9 +1754,8 @@ button, input, select { max-width: 100%; }
         </div>
         <div class="showcase-controls">
           <button class="shape-btn active" data-shape="circle">Circle</button>
-          <button class="shape-btn" data-shape="pentagon">Pentagon</button>
           <button class="shape-btn" data-shape="ngon">N-gon</button>
-          <div class="ngon-slider-wrap" id="ngonSliderWrap"><input type="range" id="ngonSlider" min="3" max="12" value="6" aria-label="Number of fence sides"><span id="ngonSliderValue">6 sides</span></div>
+          <div class="ngon-slider-wrap" id="ngonSliderWrap"><input type="range" id="ngonSlider" min="3" max="12" value="5" aria-label="Number of fence sides"><span id="ngonSliderValue">5 sides</span></div>
         </div>
         <div class="showcase-canvas-wrap"><canvas id="geofenceCanvas" width="900" height="320"></canvas><div class="geofence-alert" id="geofenceAlert">⚠ Geofence breach detected</div></div>
       </div>
@@ -1771,10 +1792,10 @@ button, input, select { max-width: 100%; }
         </div>
       </div>
 
-      <!-- Subscription reporting ETL -->
+      <!-- ETL pipeline -->
       <div class="showcase-card showcase-card-wide reveal">
         <div class="showcase-card-header">
-          <h3>ETL, From 100K Users to a Monthly Report</h3>
+          <h3>ETL Pipeline, From User Activity to Monthly Reports</h3>
           <p>Imagine a watch company collecting activity and purchase telemetry from a large user base. Every month, we first identify customers who are actively subscribed to the insight service. Only that eligible cohort is processed: their raw events are read, parsed, transformed into performance metrics, turned into observations and motivational badges, and finally delivered by email.</p>
         </div>
         <div class="demo-toolbar">
@@ -2352,7 +2373,7 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
   randomRoad();
 })();
 
-// ===== SUBSCRIBER INSIGHTS ETL DEMO =====
+// ===== ETL PIPELINE DEMO =====
 (function(){
   var nodes=[].slice.call(document.querySelectorAll('.etl-node')), run=document.getElementById('etlRun'),burst=document.getElementById('etlBurst'),reset=document.getElementById('etlReset'),status=document.getElementById('etlStatus');
   var eventsEl=document.getElementById('etlEvents'),validEl=document.getElementById('etlValid'),rowsEl=document.getElementById('etlRows'),latEl=document.getElementById('etlLatency');
@@ -2440,7 +2461,7 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
       var dx = px - cx, dy = (py - cy) / 0.82;
       return Math.sqrt(dx * dx + dy * dy) <= fenceRadius;
     }
-    var sides = shape === 'pentagon' ? 5 : ngonSides;
+    var sides = ngonSides;
     return pointInPolygon(px, py, polygonPoints(sides));
   }
 
@@ -2453,7 +2474,7 @@ document.querySelectorAll('.stat-item').forEach(item => statObserver.observe(ite
     if (shape === 'circle') {
       ctx.ellipse(cx, cy, fenceRadius, fenceRadius * 0.82, 0, 0, Math.PI * 2);
     } else {
-      var sides = shape === 'pentagon' ? 5 : ngonSides;
+      var sides = ngonSides;
       var pts = polygonPoints(sides);
       pts.forEach(function(p, i) { i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y); });
       ctx.closePath();
