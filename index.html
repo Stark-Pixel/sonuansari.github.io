@@ -13,13 +13,13 @@
 <meta property="og:url" content="https://sonuansari.dev">
 <meta property="og:title" content="Sonu Ansari | Senior Data Engineer & Software Engineer">
 <meta property="og:description" content="Senior Data Engineer with 4+ years building production ETL pipelines, real-time IoT systems, and AI assistants. AWS & Databricks certified.">
-<meta property="og:image" content="https://sonuansari.dev/sonu-logo.png">
+<meta property="og:image" content="https://sonuansari.dev/logo.png">
 <meta property="og:site_name" content="Sonu Ansari Portfolio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://sonuansari.dev">
 <meta name="twitter:title" content="Sonu Ansari | Senior Data Engineer & Software Engineer">
 <meta name="twitter:description" content="Senior Data Engineer with 4+ years building production ETL pipelines, real-time IoT systems, and AI assistants.">
-<meta name="twitter:image" content="https://sonuansari.dev/sonu-logo.png">
+<meta name="twitter:image" content="https://sonuansari.dev/logo.png">
 <script>
 (function(){
   try {
@@ -39,7 +39,7 @@
   "name": "Sonu Ansari",
   "jobTitle": "Senior Data Engineer & Software Engineer",
   "url": "https://sonuansari.dev",
-  "image": "https://sonuansari.dev/sonu-logo.png",
+  "image": "https://sonuansari.dev/logo.png",
   "email": "sonuansari@duck.com",
   "telephone": "+917219260661",
   "address": { "@type": "PostalAddress", "addressLocality": "Goa", "addressCountry": "India" },
@@ -145,8 +145,10 @@ nav.scrolled {
   box-shadow: 0 4px 30px rgba(0,0,0,.16);
 }
 .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
-.nav-logo span { color: var(--accent); }
+.nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.65rem; min-width: 0; }
+.nav-logo img { width: 38px; height: 38px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-light); box-shadow: 0 4px 16px rgba(0, 168, 232, 0.16); flex-shrink: 0; }
+.nav-logo > span { color: var(--text); }
+.nav-logo .nav-logo-dot { color: var(--accent); }
 .nav-links { display: flex; gap: 2rem; list-style: none; align-items:center; }
 .nav-links a {
   color: var(--text-muted);
@@ -1208,7 +1210,7 @@ button, input, select { max-width: 100%; }
 <!-- Navigation -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">SA<span>.</span></a>
+    <a href="#" class="nav-logo" aria-label="Sonu Ansari home"><img src="logo.png" alt="Sonu Ansari logo"><span>Sonu Ansari<span class="nav-logo-dot">.</span></span></a>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
         <span class="theme-toggle-track"><span>☀</span><span>☾</span></span>
@@ -1262,7 +1264,7 @@ button, input, select { max-width: 100%; }
     </div>
     <div class="about-grid">
       <div class="about-left reveal">
-        <div class="about-avatar brand-image"><img src="sonu-logo.png" alt="Sonu Ansari, Developer" loading="lazy"></div>
+        <div class="about-avatar brand-image"><img src="logo.png" alt="Sonu Ansari, Developer" loading="lazy"></div>
         <div class="about-info">
           <div class="info-row">
             <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -1935,7 +1937,8 @@ button, input, select { max-width: 100%; }
 
 <!-- Footer -->
 <footer>
-  <p>Designed & Built by Sonu Ansari, <span id="year"></span></p>
+  <p>© <span id="year"></span> Sonu Ansari. All rights reserved.</p>
+  <p>Designed & Built by Sonu Ansari.</p>
 </footer>
 
 <script>
