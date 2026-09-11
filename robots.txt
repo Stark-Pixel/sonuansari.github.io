@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /cdn-cgi/
 
-Sitemap: https://sonuansari.dev/sitemap.xml
+Sitemap: https://sonuansari.online/sitemap.xml
