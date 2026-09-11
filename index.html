@@ -1956,6 +1956,21 @@
             .cat-figure, .cat-ear, .cat-pupil { transition: none !important; }
         }
 
+        /* ===== SHOWCASE MOBILE FIT ===== */
+        #showcase svg, #showcase canvas { max-width: 100%; }
+        #lineFollowerSvg { width: 100%; height: auto; display: block; }
+        .lf-panel { overflow: hidden; }
+
+        @media (max-width: 640px) {
+            html { overflow-x: hidden; }
+            .map-canvas svg { height: 220px; }
+            .etl-flow { flex-wrap: wrap; overflow-x: visible; gap: .5rem; padding-bottom: .25rem; }
+            .etl-arrow { display: none; }
+            .etl-node { min-width: 0; flex: 1 1 calc(50% - .25rem); }
+            .demo-toolbar { gap: .4rem; }
+            .demo-btn { padding: .4rem .65rem; }
+        }
+
         /* ===== RESPONSIVE OVERRIDES ===== */
         .brand-image {
             width: 280px; height: 155px;
@@ -1992,6 +2007,7 @@
         }
     </style>
     <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -2767,45 +2783,7 @@
                     <a href="#" class="contact-link obf-link" data-obf="email" rel="nofollow">📧 Email Me</a>
                     <a href="https://www.linkedin.com/in/sonu-ansari-88927120a" target="_blank" rel="noopener noreferrer" class="contact-link">💼 LinkedIn</a>
                     <a href="https://github.com/sonuansari" target="_blank" rel="noopener noreferrer" class="contact-link">🐙 GitHub</a>
-                    <span class="schedule-btn-wrap">
-                        <!-- Google Calendar Appointment Scheduling begin -->
-                        <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                        <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                        <script>
-                        (function() {
-                          var target = document.currentScript;
-                          var scheduleUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3SSPTnM99GQ-qHaMng7_WTDEX9zCxA7T5n1lDGaLJT6KxJD5yme-SLR2Ju6cWaqbeO97OZzmAi?gv=true';
-
-                          function showFallback() {
-                            var fallback = document.getElementById('scheduleFallback');
-                            if (fallback) fallback.style.display = '';
-                          }
-
-                          window.addEventListener('load', function() {
-                            // The embed script can fail silently (ad blockers, privacy
-                            // extensions, or a slow/blocked network request), which would
-                            // otherwise throw "calendar is not defined". Guard against that
-                            // and fall back to a plain link instead.
-                            if (typeof calendar === 'undefined' || !calendar.schedulingButton) {
-                              showFallback();
-                              return;
-                            }
-                            try {
-                              calendar.schedulingButton.load({
-                                url: scheduleUrl,
-                                color: '#039BE5',
-                                label: 'Book an appointment',
-                                target,
-                              });
-                            } catch (e) {
-                              showFallback();
-                            }
-                          });
-                        })();
-                        </script>
-                        <!-- end Google Calendar Appointment Scheduling -->
-                        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3SSPTnM99GQ-qHaMng7_WTDEX9zCxA7T5n1lDGaLJT6KxJD5yme-SLR2Ju6cWaqbeO97OZzmAi?gv=true" target="_blank" rel="noopener noreferrer" class="contact-link" id="scheduleFallback" style="display:none;">📅 Book an appointment</a>
-                    </span>
+                    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3SSPTnM99GQ-qHaMng7_WTDEX9zCxA7T5n1lDGaLJT6KxJD5yme-SLR2Ju6cWaqbeO97OZzmAi?gv=true" target="_blank" rel="noopener noreferrer" class="contact-link">📅 Book an appointment</a>
                 </div>
             </div>
         </div>
@@ -3163,8 +3141,11 @@
             var canvas = document.getElementById('pathfindCanvas');
             if (!canvas) return;
             var ctx = canvas.getContext('2d');
-            var cols = 18,
-                rows = 10,
+            var compact = window.innerWidth < 640;
+            canvas.width = compact ? 720 : 900;
+            canvas.height = compact ? 400 : 360;
+            var cols = compact ? 12 : 18,
+                rows = compact ? 8 : 10,
                 cellW = canvas.width / cols,
                 cellH = canvas.height / rows;
             var start = { r: rows - 2, c: 1 },
@@ -3181,9 +3162,15 @@
 
             function resetGrid() {
                 grid = Array.from({ length: rows }, function() { return Array(cols).fill(false); });
-                for (var r = 1; r < rows - 1; r++) { if (r !== 2 && r !== 7) grid[r][4] = true; }
-                for (var r2 = 1; r2 < rows - 1; r2++) { if (r2 !== 5) grid[r2][9] = true; }
-                for (var r3 = 1; r3 < rows - 1; r3++) { if (r3 !== 2 && r3 !== 8) grid[r3][14] = true; }
+                var wallCols = compact ? [3, 6, 9] : [4, 9, 14];
+                var gapRows = compact ? [[2, 5], [4], [2, 6]] : [[2, 7], [5], [2, 8]];
+                wallCols.forEach(function(wc, wi) {
+                    for (var r = 1; r < rows - 1; r++) {
+                        if (gapRows[wi].indexOf(r) !== -1) continue;
+                        if (r === start.r || r === goal.r) continue;
+                        grid[r][wc] = true;
+                    }
+                });
                 grid[start.r][start.c] = false;
                 grid[goal.r][goal.c] = false;
                 visited = [];
